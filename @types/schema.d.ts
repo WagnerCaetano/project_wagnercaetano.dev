@@ -16,3 +16,8 @@ export type BlogPost = {
   date: string;
   type: Type;
 };
+
+export type PostPage = {
+  post: BlogPost;
+  markdown: MdStringObject;
+};

@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import { BlogPost } from "../../@types/schema";
+import { BlogPost, PostPage } from "../../@types/schema";
 
 export default class NotionService {
   client: Client;
@@ -8,7 +8,7 @@ export default class NotionService {
 
   constructor() {
     this.client = new Client({
-      auth: process.env.NOTION_TOKEN,
+      auth: process.env.NOTION_ACCESS_TOKEN,
     });
     this.n2m = new NotionToMarkdown({
       notionClient: this.client,
@@ -39,27 +39,61 @@ export default class NotionService {
     });
   }
 
+  async getSingleBlogPost(slug: string): Promise<PostPage> {
+    let post, markdown;
+
+    const database = process.env.NOTION_BLOG_DATABASE_ID;
+
+    const response = await this.client.databases.query({
+      database_id: database!,
+      filter: {
+        property: "Slug",
+        formula: {
+          string: {
+            equals: slug,
+          },
+        },
+      },
+    });
+
+    if (response.results.length === 0) {
+      throw "No results avaualble";
+    }
+
+    const page = response.results[0];
+
+    const mdBlocks = await this.n2m.pageToMarkdown(page.id);
+    markdown = this.n2m.toMarkdownString(mdBlocks);
+    post = NotionService.pageToPostTransformer(page);
+
+    return {
+      post,
+      markdown,
+    };
+  }
+
   private static pageToPostTransformer(page: any): BlogPost {
     let cover = page.cover;
+    if (cover) {
+      switch (cover.type) {
+        case "file":
+          cover = page.cover.file.url;
+          break;
 
-    switch (cover.type) {
-      case "file":
-        cover = page.cover.file.url;
-        break;
-
-      case "external":
-        cover = page.cover.external.url;
-        break;
-      default:
-        cover = "";
+        case "external":
+          cover = page.cover.external.url;
+          break;
+        default:
+          cover = "";
+      }
     }
 
     return {
       id: page.id,
       cover: cover,
-      title: page.properties.Name.title[0].plain_text,
+      title: page.properties.Name.title[0]?.plain_text,
       tags: page.properties.Tags.multi_select,
-      description: page.properties.Description.rich_text[0].plain_text,
+      description: page.properties.Description.rich_text[0]?.plain_text,
       date: page.properties.Updated.last_edited_time,
       slug: page.properties.Slug.formula.string,
       type: page.properties.Type.select.name,
