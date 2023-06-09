@@ -6,7 +6,16 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FFA500",
+        secondary: "#1A1205",
+        backgroundSecundary: "#071421",
+        backgroundDark: "#050F1A",
+        text: "#C3BFBF",
+        darkerText: "#807D7D",
+      },
+    },
     fontFamily: {
       sans: ["Inter var", "Inter", "system-ui", "sans-serif"],
       mono: ["JetBrains Mono", "ui-monospace", "monospace"],
