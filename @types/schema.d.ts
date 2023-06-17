@@ -17,6 +17,11 @@ export type BlogPost = {
   type: Type;
 };
 
+export type Skill = {
+  name: string;
+  image: any;
+};
+
 export type PostPage = {
   post: BlogPost;
   markdown: MdStringObject;
