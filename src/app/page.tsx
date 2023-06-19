@@ -4,6 +4,12 @@ import NavComponent from "@/components/navComponent";
 
 import * as ProfileImage from "./../assets/profile-nobg.png";
 import * as Java from "./../assets/java.svg";
+import * as Angular from "./../assets/angular.svg";
+import * as Typescript from "./../assets/typescript.svg";
+import * as Aws from "./../assets/aws.svg";
+import * as Git from "./../assets/git.svg";
+import * as React from "./../assets/react.svg";
+import * as Javascript from "./../assets/javascript.svg";
 import SkillCard from "@/components/skillCard";
 
 async function Home() {
@@ -14,23 +20,23 @@ async function Home() {
     },
     {
       name: "Angular",
-      image: Java,
+      image: Angular,
     },
     {
       name: "Typescript",
-      image: Java,
+      image: Typescript,
     },
     {
       name: "Git",
-      image: Java,
+      image: Git,
     },
     {
       name: "React",
-      image: Java,
+      image: React,
     },
     {
       name: "Aws",
-      image: Java,
+      image: Aws,
     },
     {
       name: "NextJs",
@@ -38,7 +44,7 @@ async function Home() {
     },
     {
       name: "Javascript",
-      image: Java,
+      image: Javascript,
     },
   ];
 
@@ -108,7 +114,19 @@ async function Home() {
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Skills>"}</p>
-            <div className="flex flex-1 flex-auto flex-wrap gap-4">
+            <div className="flex flex-1 flex-wrap gap-4">
+              {listSkils.map((skill) => {
+                return <SkillCard key={skill.name} skill={skill} />;
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="pt-8 px-8 xl:pt-32">
+        <div className="mx-auto max-w-6xl xl:w-max">
+          <div className="flex flex-col gap-4">
+            <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Skills>"}</p>
+            <div className="flex flex-1 flex-wrap gap-4">
               {listSkils.map((skill) => {
                 return <SkillCard key={skill.name} skill={skill} />;
               })}

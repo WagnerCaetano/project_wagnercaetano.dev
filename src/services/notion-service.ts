@@ -21,10 +21,20 @@ export default class NotionService {
     const response = await this.client.databases.query({
       database_id: database!,
       filter: {
-        property: "Published",
-        checkbox: {
-          equals: true,
-        },
+        and: [
+          {
+            property: "Type",
+            select: {
+              equals: "post",
+            },
+          },
+          {
+            property: "Published",
+            checkbox: {
+              equals: true,
+            },
+          },
+        ],
       },
       sorts: [
         {
