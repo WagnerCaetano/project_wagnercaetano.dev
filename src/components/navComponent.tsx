@@ -10,8 +10,8 @@ const NavComponent = ({ shadow }) => {
   };
 
   return (
-    <nav className={`h-28 w-auto bg-backgroundSecundary ${shadow ? "shadow-md" : ""} py-4`}>
-      <div className="flex flex-row mx-auto max-w-6xl min-w-4xl justify-between text-primary">
+    <nav className={`h-28 w-auto bg-backgroundSecundary ${shadow ? "shadow-md" : ""}`}>
+      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between text-primary">
         <div className="text-3xl font-mulish font-black">
           <p>Wagner</p>
           <p>Caetano</p>

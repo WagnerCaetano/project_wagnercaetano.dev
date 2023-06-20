@@ -32,6 +32,7 @@ async function Blog() {
           <BlogPostList posts={posts} />
         </div>
       </div>
+      <FooterComponent />
     </>
   );
 }
