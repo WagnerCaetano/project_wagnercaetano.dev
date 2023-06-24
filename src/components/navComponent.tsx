@@ -10,14 +10,14 @@ const NavComponent = ({ shadow }) => {
   };
 
   return (
-    <nav className={`h-28 w-auto bg-backgroundSecundary ${shadow ? "shadow-md" : ""}`}>
-      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between text-primary">
-        <div className="text-3xl font-mulish font-black">
+    <nav className={`h-28 w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""}`}>
+      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between ">
+        <div className="text-3xl font-mulish font-black text-primary">
           <p>Wagner</p>
           <p>Caetano</p>
         </div>
 
-        <div className="relative">
+        <div className="relative text-primary">
           <button
             onClick={toggleDropdown}
             className="flex items-center justify-center text-4xl font-lora font-normal focus:outline-none lg:hidden"
@@ -42,41 +42,50 @@ const NavComponent = ({ shadow }) => {
           <div
             className={`absolute top-14 right-0 bg-backgroundSecundary py-2 px-4 rounded shadow-md ${
               isOpen ? "block" : "hidden"
-            } lg:hidden`}
+            } lg:hidden text-primary`}
           >
             <Link href={"/"}>
               <p className="block mb-2">About</p>
             </Link>
-            <Link href={"/"}>
+            <Link href={"/projects"}>
               <p className="block mb-2">Portfolio</p>
             </Link>
-            <Link href={"/"}>
-              <p className="block mb-2">Skills</p>
+            <Link href={"/blog"}>
+              <p className="block mb-2">Blog</p>
             </Link>
             <Link href={"/"}>
               <p className="block mb-2">Contact</p>
             </Link>
-            <Link href={"/"}>
-              <p className="rounded border border-primary p-2 text-center">Download Resume</p>
-            </Link>
+            <a
+              href={"/resume.pdf"}
+              download={true}
+              className="rounded border border-primary p-2 text-center text-primary"
+            >
+              Download Resume
+            </a>
           </div>
         </div>
-        <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-lora font-normal">
+        <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-lora font-normal text-text">
           <Link href={"/"}>
-            <p>About</p>
+            <p className="hover:text-primary hover-delay">About</p>
+          </Link>
+          <Link href={"/projects"}>
+            <p className="hover:text-primary hover-delay">Portfolio</p>
+          </Link>
+          <Link href={"/blog"}>
+            <p className="hover:text-primary hover-delay">Blog</p>
           </Link>
           <Link href={"/"}>
-            <p>Portfolio</p>
+            <p className="hover:text-primary hover-delay">Contact</p>
           </Link>
-          <Link href={"/"}>
-            <p>Skills</p>
-          </Link>
-          <Link href={"/"}>
-            <p>Contact</p>
-          </Link>
-          <Link href={"/"}>
-            <p className="rounded border border-primary p-2 text-center">Download Resume</p>
-          </Link>
+
+          <a
+            href={"/resume.pdf"}
+            download={true}
+            className="rounded border border-primary p-2 text-center text-primary hover:font-bold hover-delay"
+          >
+            Download Resume
+          </a>
         </div>
       </div>
     </nav>

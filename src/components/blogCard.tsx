@@ -1,4 +1,4 @@
-import { BlogPost } from "../../@types/schema";
+import { BlogPost } from "../constants/types";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { FunctionComponent } from "react";
@@ -14,7 +14,7 @@ dayjs.extend(localizedFormat);
 
 const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
   return (
-    <Link className="transition duration-300 hover:scale-105" href={`/post/${post.slug}`}>
+    <Link className="transition duration-300 hover:scale-105" href={`/post/blog/${post.slug}`}>
       <div className="oveflow-hidden flex flex-col rounded-xl shadow-lg bg-backgroundSecundary">
         <div className="flex-shrink-0">
           <img className="object-fit h-64 w-full" src={post.cover} alt={"cover"} />

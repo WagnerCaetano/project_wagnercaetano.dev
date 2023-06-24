@@ -1,6 +1,7 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import { BlogPost, PostPage } from "../../@types/schema";
+import { BlogPost, BlogPostPage, ProjectPost, ProjectPostPage } from "../constants/types";
+import { pageToBlogPostTransformer, pageToProjectPostTransformer } from "./notion.helper";
 
 export default class NotionService {
   client: Client;
@@ -15,19 +16,63 @@ export default class NotionService {
     });
   }
 
+  /* ASYNC METHODS */
+  async getPublishedProjectPosts(): Promise<ProjectPost[]> {
+    const database = process.env.NOTION_PORTFOLIO_DATABASE_ID;
+
+    const response = await this.searchAnyListNotion(database);
+
+    return response.results.map((page) => {
+      return pageToProjectPostTransformer(page);
+    });
+  }
+
   async getPublishedBlogPosts(): Promise<BlogPost[]> {
     const database = process.env.NOTION_BLOG_DATABASE_ID;
 
-    const response = await this.client.databases.query({
+    const response = await this.searchAnyListNotion(database);
+
+    return response.results.map((page) => {
+      return pageToBlogPostTransformer(page);
+    });
+  }
+
+  async getSingleProjectPost(slug: string): Promise<ProjectPostPage> {
+    let post, markdown;
+
+    const database = process.env.NOTION_PORTFOLIO_DATABASE_ID;
+
+    let page;
+    ({ page, markdown } = await this.getAnyPageNotion(database, slug, markdown));
+    post = pageToProjectPostTransformer(page);
+
+    return {
+      post,
+      markdown,
+    };
+  }
+
+  async getSingleBlogPost(slug: string): Promise<BlogPostPage> {
+    let post, markdown;
+
+    const database = process.env.NOTION_BLOG_DATABASE_ID;
+
+    let page;
+    ({ page, markdown } = await this.getAnyPageNotion(database, slug, markdown));
+    post = pageToBlogPostTransformer(page);
+
+    return {
+      post,
+      markdown,
+    };
+  }
+
+  /* PRIVATE METHODS */
+  private async searchAnyListNotion(database: string) {
+    return await this.client.databases.query({
       database_id: database!,
       filter: {
         and: [
-          {
-            property: "Type",
-            select: {
-              equals: "post",
-            },
-          },
           {
             property: "Published",
             checkbox: {
@@ -43,17 +88,9 @@ export default class NotionService {
         },
       ],
     });
-
-    return response.results.map((page) => {
-      return NotionService.pageToPostTransformer(page);
-    });
   }
 
-  async getSingleBlogPost(slug: string): Promise<PostPage> {
-    let post, markdown;
-
-    const database = process.env.NOTION_BLOG_DATABASE_ID;
-
+  private async getAnyPageNotion(database: string, slug: string, markdown: any) {
     const response = await this.client.databases.query({
       database_id: database!,
       filter: {
@@ -74,39 +111,6 @@ export default class NotionService {
 
     const mdBlocks = await this.n2m.pageToMarkdown(page.id);
     markdown = this.n2m.toMarkdownString(mdBlocks);
-    post = NotionService.pageToPostTransformer(page);
-
-    return {
-      post,
-      markdown,
-    };
-  }
-
-  private static pageToPostTransformer(page: any): BlogPost {
-    let cover = page.cover;
-    if (cover) {
-      switch (cover.type) {
-        case "file":
-          cover = page.cover.file.url;
-          break;
-
-        case "external":
-          cover = page.cover.external.url;
-          break;
-        default:
-          cover = "";
-      }
-    }
-
-    return {
-      id: page.id,
-      cover: cover,
-      title: page.properties.Name.title[0]?.plain_text,
-      tags: page.properties.Tags.multi_select,
-      description: page.properties.Description.rich_text[0]?.plain_text,
-      date: page.properties.Updated.last_edited_time,
-      slug: page.properties.Slug.formula.string,
-      type: page.properties.Type.select.name,
-    };
+    return { page, markdown };
   }
 }

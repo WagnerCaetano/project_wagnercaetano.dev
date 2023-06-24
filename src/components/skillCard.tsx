@@ -1,4 +1,4 @@
-import { Skill } from "../../@types/schema";
+import { Skill } from "../constants/types";
 import { FunctionComponent } from "react";
 import "./../app/globals.css";
 import Image from "next/image";

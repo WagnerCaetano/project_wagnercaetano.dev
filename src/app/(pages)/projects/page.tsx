@@ -1,35 +1,38 @@
 import "./../../globals.css";
 import NotionService from "@/services/notion-service";
-import { BlogPost } from "../../../../@types/schema";
-import BlogCard from "@/components/blogCard";
+import { ProjectPost } from "../../../constants/types";
 import NavComponent from "@/components/navComponent";
+import FooterComponent from "@/components/footerComponent";
+import ProjectPostList from "@/components/projectCardList";
 
-const fetchNotionData = async (): Promise<BlogPost[]> => {
+const fetchNotionData = async (): Promise<ProjectPost[]> => {
   const notionService = new NotionService();
 
-  const posts = await notionService.getPublishedBlogPosts();
+  const projects = await notionService.getPublishedProjectPosts();
 
-  return posts;
+  return projects;
 };
 
 async function Projects() {
-  const posts = await fetchNotionData();
+  // handle pagination for projects
+  const projects = await fetchNotionData();
 
   return (
     <>
       <NavComponent shadow={true} />
       <div className="min-h-screen">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center justify-center text-text">
-            <h1 className="text-center text-xl font-extrabold md:text-4xl">NotionBlog</h1>
+        <div className="mx-auto max-w-6xl pt-24">
+          <div className="flex items-center justify-center flex-col gap-4">
+            <p className="text-center text-xl font-extrabold md:text-4xl text-primary">Portfolio</p>
+            <p className="text-center text-sm md:text-xl text-text">
+              Some of my projects for personal study, practice or examples.
+            </p>
           </div>
-          <div className="mx-auto mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {posts?.map((post: BlogPost) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
-          </div>
+
+          <ProjectPostList posts={projects} />
         </div>
       </div>
+      <FooterComponent shadow={true} />
     </>
   );
 }

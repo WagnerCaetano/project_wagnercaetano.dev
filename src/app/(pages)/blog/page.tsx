@@ -1,9 +1,10 @@
 import "./../../globals.css";
 import NotionService from "@/services/notion-service";
-import { BlogPost } from "../../../../@types/schema";
+import { BlogPost } from "../../../constants/types";
 import BlogCard from "@/components/blogCard";
 import NavComponent from "@/components/navComponent";
 import BlogPostList from "@/components/blogCardList";
+import FooterComponent from "@/components/footerComponent";
 
 const fetchNotionData = async (): Promise<BlogPost[]> => {
   const notionService = new NotionService();
@@ -32,7 +33,7 @@ async function Blog() {
           <BlogPostList posts={posts} />
         </div>
       </div>
-      <FooterComponent />
+      <FooterComponent shadow={true} />
     </>
   );
 }
