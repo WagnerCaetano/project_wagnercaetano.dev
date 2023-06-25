@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { FunctionComponent } from "react";
 import ProjectCard from "./projectCard";
+import { ProjectListPackage } from "@/constants/types";
 
-export default function ProjectPostList({ posts }) {
+type ProjectListProps = {
+  data: ProjectListPackage[];
+};
+
+const ProjectPostList: FunctionComponent<ProjectListProps> = ({ data }) => {
   const [currentSliceEnd, setCurrentSliceEnd] = React.useState(6);
 
   const nextPage = () => {
@@ -13,11 +18,22 @@ export default function ProjectPostList({ posts }) {
   return (
     <>
       <div className="mx-auto mt-12 grid grid-cols-1 gap-6">
-        {posts.slice(0, currentSliceEnd).map((post) => (
-          <ProjectCard key={post.id} post={post} />
+        {data.slice(0, currentSliceEnd).map((project) => (
+          <ProjectCard key={project.projectRepository.name} project={project} />
         ))}
       </div>
-      {currentSliceEnd < posts.length && <button onClick={nextPage}>Load more projects</button>}
+      {currentSliceEnd < data.length && (
+        <div className="flex flex-row place-content-center p-4">
+          <button
+            className="px-4 py-2 rounded bg-backgroundSecundary text-text hover:text-primary hover:bg-secondary hover-delay"
+            onClick={nextPage}
+          >
+            Load more projects
+          </button>
+        </div>
+      )}
     </>
   );
-}
+};
+
+export default ProjectPostList;

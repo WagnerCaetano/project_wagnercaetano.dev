@@ -1,14 +1,15 @@
 import "./../../globals.css";
-import NotionService from "@/services/notion-service";
-import { ProjectPost } from "../../../constants/types";
+import NotionService from "@/services/notion.service";
+import { ProjectListPackage } from "../../../constants/types";
 import NavComponent from "@/components/navComponent";
 import FooterComponent from "@/components/footerComponent";
 import ProjectPostList from "@/components/projectCardList";
+import { getAllProjectList } from "@/services/project.service";
 
-const fetchNotionData = async (): Promise<ProjectPost[]> => {
+const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
 
-  const projects = await notionService.getPublishedProjectPosts();
+  const projects = await getAllProjectList(notionService);
 
   return projects;
 };
@@ -29,7 +30,7 @@ async function Projects() {
             </p>
           </div>
 
-          <ProjectPostList posts={projects} />
+          <ProjectPostList data={projects} />
         </div>
       </div>
       <FooterComponent shadow={true} />

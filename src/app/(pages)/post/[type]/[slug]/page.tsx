@@ -1,5 +1,5 @@
 import "./../../../../globals.css";
-import NotionService from "@/services/notion-service";
+import NotionService from "@/services/notion.service";
 import ReactMarkdown from "react-markdown";
 import NavComponent from "@/components/navComponent";
 import { BlogPostPage, ProjectPostPage } from "../../../../../constants/types";

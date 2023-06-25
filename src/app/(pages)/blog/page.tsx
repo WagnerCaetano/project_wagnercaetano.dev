@@ -1,5 +1,5 @@
 import "./../../globals.css";
-import NotionService from "@/services/notion-service";
+import NotionService from "@/services/notion.service";
 import { BlogPost } from "../../../constants/types";
 import BlogCard from "@/components/blogCard";
 import NavComponent from "@/components/navComponent";
