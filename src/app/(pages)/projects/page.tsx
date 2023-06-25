@@ -22,10 +22,10 @@ async function Projects() {
     <>
       <NavComponent shadow={true} />
       <div className="min-h-screen">
-        <div className="mx-auto max-w-6xl pt-24">
+        <div className="mx-auto max-w-6xl pt-24 px-4">
           <div className="flex items-center justify-center flex-col gap-4">
-            <p className="text-center text-xl font-extrabold md:text-4xl text-primary">Portfolio</p>
-            <p className="text-center text-sm md:text-xl text-text">
+            <p className="text-center text-2xl font-extrabold md:text-4xl text-primary">Portfolio</p>
+            <p className="text-center text-lg md:text-xl text-text">
               Some of my projects for personal study, practice or examples.
             </p>
           </div>

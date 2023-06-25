@@ -8,6 +8,7 @@ import { FaStar } from "react-icons/fa";
 
 import Image from "next/image";
 import GithubPlacerholder from "./../assets/github_placeholder.jpg";
+import ProjectCardButtons from "./projectCardButtons";
 
 type ProjectCardProps = {
   project: ProjectListPackage;
@@ -33,11 +34,11 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div className="oveflow-hidden flex flex-row rounded-xl shadow-lg bg-backgroundSecundary">
+    <div className="oveflow-hidden flex flex-col lg:flex-row rounded-xl shadow-lg bg-backgroundSecundary">
       <div className="flex-shrink-0">
         <Image className="object-cover h-64 w-96" src={handleCover()} width={384 * 2} height={256 * 2} alt={"cover"} />
       </div>
-      <div className="flex flex-1 flex-col justify-between px-4 pb-6 pt-2 text-text">
+      <div className="flex min-h-[200px] flex-col lg:justify-between px-4 pb-6 pt-2 text-text">
         <div className="flex-1">
           <span className="mt-2 block">
             <p className="text-xl font-medium ">{handleTitle()}</p>
@@ -47,7 +48,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
           </span>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="flex flex-col gap-4 align-center">
+          <div className="flex flex-col gap-4 justify-end lg: justify-normal">
             {project.projectPost?.tags.map((tag) => (
               <span key={tag.id} className={`${colorTagMap[tag.name]} font-bold rounded-lg bg-white px-2 py-1 text-xs`}>
                 {tag.name}
@@ -58,29 +59,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
               <FaStar className="text-primary" width="32px" />
             </div>
           </div>
-          <div className="flex flex-row gap-4 items-center">
-            {(project.projectPost?.github_url || project.projectRepository.url) && (
-              <Link
-                href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
-                className="text-text hover:text-primary hover-delay"
-              >
-                Check on Github
-              </Link>
-            )}
-            {project.projectPost?.vercel_url && (
-              <Link href={project.projectPost.vercel_url} className="text-text hover:text-primary hover-delay">
-                Check on Vercel
-              </Link>
-            )}
-            {project.projectPost?.slug && (
-              <Link
-                href={`/post/project/${project.projectPost.slug}`}
-                className="rounded border border-primary px-2 py-3 text-center text-primary hover:font-bold hover-delay"
-              >
-                Visit project page
-              </Link>
-            )}
-          </div>
+          <ProjectCardButtons project={project} />
         </div>
       </div>
     </div>
@@ -88,3 +67,4 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
 };
 
 export default ProjectCard;
+

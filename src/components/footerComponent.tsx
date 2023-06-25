@@ -1,11 +1,10 @@
-"use client";
 import Link from "next/link";
 import React from "react";
 
 const FooterComponent = ({ shadow }) => {
   return (
-    <footer className={`min-h-[388px] w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""} `}>
-      <div className="flex flex-row mx-auto pt-28 pb-4 max-w-6xl min-w-4xl justify-between ">
+    <footer className={`min-h-[388px] font-lora w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""} `}>
+      <div className="flex flex-col lg:flex-row mx-auto pt-28 pb-4 max-w-6xl min-w-4xl text-center gap-8 lg:gap-0 justify-between ">
         <div className="flex flex-col gap-4">
           <div className="text-3xl font-mulish font-black text-primary">
             <p>Wagner</p>

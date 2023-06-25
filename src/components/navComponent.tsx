@@ -10,7 +10,7 @@ const NavComponent = ({ shadow }) => {
   };
 
   return (
-    <nav className={`h-28 w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""}`}>
+    <nav className={`h-28 px-4 lg:p-0 w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""}`}>
       <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between ">
         <div className="text-3xl font-mulish font-black text-primary">
           <p>Wagner</p>
@@ -20,7 +20,7 @@ const NavComponent = ({ shadow }) => {
         <div className="relative text-primary">
           <button
             onClick={toggleDropdown}
-            className="flex items-center justify-center text-4xl font-lora font-normal focus:outline-none lg:hidden"
+            className="flex items-center justify-center text-2xl font-lora font-normal focus:outline-none lg:hidden"
           >
             Menu
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 ml-2" viewBox="0 0 20 20" fill="currentColor">
