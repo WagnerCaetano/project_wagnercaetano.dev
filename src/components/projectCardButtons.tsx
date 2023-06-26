@@ -52,7 +52,7 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
         {(project.projectPost?.github_url || project.projectRepository.url) && (
           <Link
             href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
-            className="text-text"
+            className="text-text hover:text-primary hover-delay"
           >
             Github
           </Link>

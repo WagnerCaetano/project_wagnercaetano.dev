@@ -17,18 +17,15 @@ async function PostPage({ params: { type, slug } }) {
   const { markdown, post } = await fetchNotionPostData(type, slug);
 
   return (
-    <>
-      <NavComponent shadow={true} />
-      <div className="min-h-screen">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center justify-center">
-            <article className="prose">
-              <ReactMarkdown children={markdown.parent} />
-            </article>
-          </div>
+    <div className="min-h-screen">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex items-center justify-center">
+          <article className="prose">
+            <ReactMarkdown children={markdown.parent} />
+          </article>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

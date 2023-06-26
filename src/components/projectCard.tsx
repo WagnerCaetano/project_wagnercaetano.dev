@@ -34,11 +34,11 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div className="oveflow-hidden flex flex-col lg:flex-row rounded-xl shadow-lg bg-backgroundSecundary">
+    <div className="oveflow-hidden max-w-6xl flex flex-col lg:flex-row rounded-xl shadow-lg bg-backgroundSecundary">
       <div className="flex-shrink-0">
         <Image className="object-cover h-64 w-96" src={handleCover()} width={384 * 2} height={256 * 2} alt={"cover"} />
       </div>
-      <div className="flex min-h-[200px] flex-col lg:justify-between px-4 pb-6 pt-2 text-text">
+      <div className="flex min-h-[200px] w-full flex-col lg:justify-between px-4 pb-6 pt-2 text-text">
         <div className="flex-1">
           <span className="mt-2 block">
             <p className="text-xl font-medium ">{handleTitle()}</p>
@@ -48,7 +48,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
           </span>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="flex flex-col gap-4 justify-end lg: justify-normal">
+          <div className="flex flex-col gap-4 justify-end lg:justify-normal">
             {project.projectPost?.tags.map((tag) => (
               <span key={tag.id} className={`${colorTagMap[tag.name]} font-bold rounded-lg bg-white px-2 py-1 text-xs`}>
                 {tag.name}

@@ -63,3 +63,10 @@ export type ProjectListPackage = {
   projectPost?: ProjectPost,
   projectRepository: ProjectRepository,
 }
+
+export type Experience = {
+  title: string;
+  place: string;
+  description: string;
+  period: string;
+};

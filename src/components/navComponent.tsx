@@ -11,7 +11,7 @@ const NavComponent = ({ shadow }) => {
 
   return (
     <nav className={`h-28 px-4 lg:p-0 w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""}`}>
-      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between ">
+      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between font-lora">
         <div className="text-3xl font-mulish font-black text-primary">
           <p>Wagner</p>
           <p>Caetano</p>
@@ -47,7 +47,7 @@ const NavComponent = ({ shadow }) => {
             <Link href={"/"}>
               <p className="block mb-2">About</p>
             </Link>
-            <Link href={"/projects"}>
+            <Link href={"https://wagnercaetano.dev/projects"}>
               <p className="block mb-2">Portfolio</p>
             </Link>
             <Link href={"/blog"}>
@@ -65,7 +65,7 @@ const NavComponent = ({ shadow }) => {
             </a>
           </div>
         </div>
-        <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-lora font-normal text-text">
+        <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-normal text-text">
           <Link href={"/"}>
             <p className="hover:text-primary hover-delay">About</p>
           </Link>

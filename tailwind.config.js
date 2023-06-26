@@ -9,8 +9,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      mulish: ["Mulish", "sans-serif"],
-      lora: ["Lora", "serif"],
+      mulish: "var(--font-mulish)",
+      lora: "var(--font-lora)",
     },
     extend: {
       colors: {
