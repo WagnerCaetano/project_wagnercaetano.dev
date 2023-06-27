@@ -82,7 +82,7 @@ const NavComponent = ({ shadow }) => {
           <a
             href={"/resume.pdf"}
             download={true}
-            className="rounded border border-primary p-2 text-center text-primary hover:font-bold hover-delay"
+            className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out"
           >
             Download Resume
           </a>

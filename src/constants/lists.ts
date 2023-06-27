@@ -5,7 +5,7 @@ import * as Aws from "./../assets/techs/aws.svg";
 import * as Git from "./../assets/techs/git.svg";
 import * as React from "./../assets/techs/react.svg";
 import * as Javascript from "./../assets/techs/javascript.svg";
-import { Experience } from "./types";
+import { Experience, Testimonial } from "./types";
 
 export const listExperienceProfessional: Experience[] = [
   {
@@ -80,5 +80,56 @@ export const listSkils: { name: string; image: any }[] = [
   {
     name: "Javascript",
     image: Javascript,
+  },
+];
+
+export const homeTestimonials: Testimonial[] = [
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
+  },
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
+  },
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
+  },
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
+  },
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
+  },
+  {
+    content:
+      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
+    name: "Jessie J",
+    id: "1",
+    date: "2021",
+    project: "Project 1",
   },
 ];

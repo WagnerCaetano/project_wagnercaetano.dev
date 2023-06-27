@@ -5,11 +5,13 @@ import * as ProfileImage from "./../../assets/profile-nobg.png";
 import * as GithubPlacerholder from "./../../assets/github_placeholder.jpg";
 
 import SkillCard from "@/components/skillCard";
-import { listExperienceAcademic, listExperienceProfessional, listSkils } from "@/constants/lists";
+import { homeTestimonials, listExperienceAcademic, listExperienceProfessional, listSkils } from "@/constants/lists";
 import ExperienceList from "@/components/experienceList";
 import { getAllProjectList } from "@/services/project.service";
 import NotionService from "@/services/notion.service";
 import { ProjectListPackage } from "@/constants/types";
+import Link from "next/link";
+import TestimonialCarousel from "@/components/testimonialCarousel";
 
 const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
@@ -22,23 +24,30 @@ const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
 async function Home() {
   const projects = await fetchNotionData();
 
+  const handlePortfolioShowcaseClick = (project: ProjectListPackage) => {
+    if (project.projectPost) {
+      return `https://wagnercaetano.dev/project/${project.projectPost.slug}`;
+    }
+    return project.projectRepository.url;
+  };
+
   return (
     <>
-      <div className="bg-backgroundSecundary max-h-[765]px px-5 flex flex-col">
+      <div className="bg-backgroundSecundary max-h-[765]px px-5 flex flex-col ">
         <div className="mx-auto min-w-6xl xl:w-max">
           <div className="flex flew-col flex-wrap xl:flex-row xl:flex-nowrap">
             <div className="flex flex-col">
               <div className="flex py-16 xl:py-60 flex-col gap-8">
                 <div className="flex flex-col gap-1 text-text">
-                  <p className="text-3xl">Hello, my name is</p>
-                  <p className="text-5xl">Wagner Caetano,</p>
-                  <p className="text-3xl">Full Stack Developer</p>
+                  <p className="text-3xl font-mulish font-black">Hello, my name is</p>
+                  <p className="text-5xl font-mulish font-black">Wagner Caetano,</p>
+                  <p className="text-3xl font-lora">Full Stack Developer</p>
                 </div>
-                <div className="flex flex-row gap-4">
-                  <button className="bg-primary rounded text-secondary py-3 px-2">
+                <div className="flex flex-row gap-4 font-lora text-xl text-center">
+                  <button className="text-secondary bg-primary rounded px-3 py-2 hover:bg-opacity-80 transition-all duration-250 ease-in-out">
                     <p>Get in contact</p>
                   </button>
-                  <button className="border border-primary rounded text-primary py-3 px-2">
+                  <button className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out">
                     <p>Download resume</p>
                   </button>
                 </div>
@@ -93,33 +102,58 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:py-32">
+      <div className="pt-8 px-8 xl:pt-32 xl:pb-16">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Portfolio>"}</p>
             <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-3">
               {projects.map((project) => (
-                <>
+                <Link
+                  className="text-transparent hover:text-primary transition-all duration-250 ease-in-out"
+                  href={handlePortfolioShowcaseClick(project)}
+                >
                   <Image
                     src={project.projectPost?.cover ? project.projectPost?.cover : GithubPlacerholder}
-                    className="object-cover rounded-lg shadow-lg h-64 w-full"
+                    className="object-cover rounded-sm shadow-lg h-64 w-full hover:opacity-50 cursor-pointer transition-all duration-250 ease-in-out"
                     width={400}
                     height={400}
                     alt={""}
+                    title="Click to see more"
                   />
-                </>
+                  <p className="text-lg font-mulish text-center">
+                    {project.projectPost?.title
+                      ? project.projectPost?.title
+                      : project.projectRepository.name.split("_")[1]}
+                  </p>
+                </Link>
               ))}
             </div>
+            <Link
+              href={"/portfolio"}
+              className="self-center text-secondary w-1/8 bg-primary rounded px-3 py-2 font-lora text-xl text-center hover:bg-opacity-80 transition-all duration-250 ease-in-out"
+            >
+              See more
+            </Link>
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:pt-32 bg-backgroundSecundary">
+      <div className="pt-8 px-8 xl:py-16 bg-backgroundSecundary">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Experience>"}</p>
             <div className="flex flex-1 flex-wrap lg:flex-nowrap lg:flex-row gap-8 lg:justify-between">
               <ExperienceList title="Professional Experience" height="640" experiences={listExperienceProfessional} />
               <ExperienceList title="Academic Experience" height="400" experiences={listExperienceAcademic} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="pt-8 px-8 xl:pb-32 xl:pt-16">
+        <div className="mx-auto max-w-6xl xl:w-max">
+          <div className="flex flex-col gap-4">
+            <p className="text-primary font-mulish font-bold text-4xl text-left">{"<Feedback>"}</p>
+            <div className="flex flex-1">
+              <TestimonialCarousel testimonials={homeTestimonials} />
             </div>
           </div>
         </div>

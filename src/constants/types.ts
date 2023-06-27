@@ -1,5 +1,6 @@
 import { MdStringObject } from "notion-to-md/build/types";
 import { ProjectTypes } from "./enums";
+import { StaticImageData } from "next/image";
 
 /* GITHUB TYPES */
 export type ProjectRepository = {
@@ -8,9 +9,7 @@ export type ProjectRepository = {
   description: string;
   stars: string;
   update_date: string;
-}
-
-
+};
 
 /* NOTION TYPES */
 export type Tag = {
@@ -52,7 +51,6 @@ export type ProjectPostPage = {
   markdown: MdStringObject;
 };
 
-
 /* SCREEN TYPES */
 export type Skill = {
   name: string;
@@ -60,13 +58,21 @@ export type Skill = {
 };
 
 export type ProjectListPackage = {
-  projectPost?: ProjectPost,
-  projectRepository: ProjectRepository,
-}
+  projectPost?: ProjectPost;
+  projectRepository: ProjectRepository;
+};
 
 export type Experience = {
   title: string;
   place: string;
   description: string;
   period: string;
+};
+
+export type Testimonial = {
+  id: any;
+  name: string;
+  content: string;
+  project: string;
+  date: string;
 };
