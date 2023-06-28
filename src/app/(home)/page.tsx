@@ -18,7 +18,7 @@ const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
 
   const projects = await getAllProjectList(notionService);
 
-  return projects.slice(0, 6);
+  return projects.slice(0, 3);
 };
 
 async function Home() {
@@ -33,7 +33,7 @@ async function Home() {
 
   return (
     <>
-      <div className="bg-backgroundSecundary max-h-[765]px px-5 flex flex-col ">
+      <div className="bg-backgroundSecundary max-h-[765]px px-4 flex flex-col">
         <div className="mx-auto min-w-6xl xl:w-max">
           <div className="flex flew-col flex-wrap xl:flex-row xl:flex-nowrap">
             <div className="flex flex-col">
@@ -75,7 +75,7 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:pt-32">
+      <div className="pt-16 px-4 xl:pt-32">
         <div className="flex flex-col mx-auto max-w-6xl xl:w-max gap-4">
           <p className="text-primary font-mulish font-bold text-4xl">{"<About>"}</p>
           <div className="flex flex-row gap-4">
@@ -90,7 +90,7 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:pt-32">
+      <div className="pt-16 px-4 xl:pt-32">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Skills>"}</p>
@@ -102,7 +102,7 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:pt-32 xl:pb-16">
+      <div className="pt-16 pb-8 px-4 xl:pt-32 xl:pb-16">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Portfolio>"}</p>
@@ -137,18 +137,18 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:py-16 bg-backgroundSecundary">
+      <div className="py-8 px-4 xl:py-16 bg-backgroundSecundary">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{"<Experience>"}</p>
             <div className="flex flex-1 flex-wrap lg:flex-nowrap lg:flex-row gap-8 lg:justify-between">
-              <ExperienceList title="Professional Experience" height="640" experiences={listExperienceProfessional} />
-              <ExperienceList title="Academic Experience" height="400" experiences={listExperienceAcademic} />
+              <ExperienceList title="Professional Experience" height="720" experiences={listExperienceProfessional} />
+              <ExperienceList title="Academic Experience" height="480" experiences={listExperienceAcademic} />
             </div>
           </div>
         </div>
       </div>
-      <div className="pt-8 px-8 xl:pb-32 xl:pt-16">
+      <div className="pb-16 pt-8 px-4 xl:pb-32 xl:pt-16">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-left">{"<Feedback>"}</p>

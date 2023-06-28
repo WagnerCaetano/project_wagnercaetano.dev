@@ -11,7 +11,7 @@ const NavComponent = ({ shadow }) => {
 
   return (
     <nav className={`h-28 px-4 lg:p-0 w-auto bg-backgroundSecundary ${shadow ? "shadow-lg" : ""}`}>
-      <div className="flex flex-row py-4 mx-auto max-w-6xl min-w-4xl justify-between font-lora">
+      <div className="flex flex-row p-4 mx-auto max-w-6xl min-w-4xl justify-between font-lora">
         <div className="text-3xl font-mulish font-black text-primary">
           <p>Wagner</p>
           <p>Caetano</p>
@@ -40,7 +40,7 @@ const NavComponent = ({ shadow }) => {
             </svg>
           </button>
           <div
-            className={`absolute top-14 right-0 bg-backgroundSecundary py-2 px-4 rounded shadow-md ${
+            className={`absolute top-14 right-0 w-48 bg-backgroundSecundary py-2 px-4 rounded shadow-md ${
               isOpen ? "block" : "hidden"
             } lg:hidden text-primary`}
           >
@@ -50,7 +50,7 @@ const NavComponent = ({ shadow }) => {
             <Link href={"https://wagnercaetano.dev/projects"}>
               <p className="block mb-2">Portfolio</p>
             </Link>
-            <Link href={"/blog"}>
+            <Link href={"https://wagnercaetano.dev/blog"}>
               <p className="block mb-2">Blog</p>
             </Link>
             <Link href={"/"}>
