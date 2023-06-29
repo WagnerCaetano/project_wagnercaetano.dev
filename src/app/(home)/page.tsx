@@ -12,6 +12,7 @@ import NotionService from "@/services/notion.service";
 import { ProjectListPackage } from "@/constants/types";
 import Link from "next/link";
 import TestimonialCarousel from "@/components/testimonialCarousel";
+import ContactForm from "@/components/contactForm";
 
 const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
@@ -81,11 +82,10 @@ async function Home() {
           <div className="flex flex-row gap-4">
             <hr className="hidden xl:flex border-primary border-2 w-32 mt-3 m-2" />
             <p className="text-text text-xl font-lora font-normal">
-              I am a <b>Full-stack Software Developer</b> with a passion for <b>designing</b> and <b>developing</b>{" "}
-              innovative software solutions. With extensive knowledge and expertise in both frontend and backend
-              development, my objective is to work with various frontend technologies like{" "}
-              <b>Angular, React, and React Native</b>, while also assisting with backend demands. I am excited about
-              collaborating with diverse teams and contributing to cutting-edge projects.
+              I am a <b>Full-stack Software Developer</b> with a passion for <b>designing</b> and <b>developing</b> innovative software
+              solutions. With extensive knowledge and expertise in both frontend and backend development, my objective is to work with
+              various frontend technologies like <b>Angular, React, and React Native</b>, while also assisting with backend demands. I am
+              excited about collaborating with diverse teams and contributing to cutting-edge projects.
             </p>
           </div>
         </div>
@@ -121,9 +121,7 @@ async function Home() {
                     title="Click to see more"
                   />
                   <p className="text-lg font-mulish text-center">
-                    {project.projectPost?.title
-                      ? project.projectPost?.title
-                      : project.projectRepository.name.split("_")[1]}
+                    {project.projectPost?.title ? project.projectPost?.title : project.projectRepository.name.split("_")[1]}
                   </p>
                 </Link>
               ))}
@@ -157,6 +155,9 @@ async function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="pb-16 pt-8 px-4 xl:pb-32 xl:pt-16">
+        <ContactForm />
       </div>
     </>
   );

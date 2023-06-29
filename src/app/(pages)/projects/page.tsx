@@ -1,8 +1,6 @@
 import "./../../globals.css";
 import NotionService from "@/services/notion.service";
 import { ProjectListPackage } from "../../../constants/types";
-import NavComponent from "@/components/navComponent";
-import FooterComponent from "@/components/footerComponent";
 import ProjectPostList from "@/components/projectCardList";
 import { getAllProjectList } from "@/services/project.service";
 

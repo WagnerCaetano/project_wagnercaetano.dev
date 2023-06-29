@@ -1,9 +1,7 @@
 import "./../../globals.css";
 import NotionService from "@/services/notion.service";
 import { BlogPost } from "../../../constants/types";
-import NavComponent from "@/components/navComponent";
 import BlogPostList from "@/components/blogCardList";
-import FooterComponent from "@/components/footerComponent";
 
 const fetchNotionData = async (): Promise<BlogPost[]> => {
   const notionService = new NotionService();

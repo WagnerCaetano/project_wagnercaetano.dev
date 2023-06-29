@@ -1,6 +1,5 @@
 import { ProjectListPackage } from "../constants/types";
 import dayjs from "dayjs";
-import Link from "next/link";
 import { FunctionComponent } from "react";
 import "./../app/globals.css";
 import { colorTagMap } from "@/constants/color";

@@ -1,7 +1,6 @@
 import "./../../../../globals.css";
 import NotionService from "@/services/notion.service";
 import ReactMarkdown from "react-markdown";
-import NavComponent from "@/components/navComponent";
 import { BlogPostPage, ProjectPostPage } from "../../../../../constants/types";
 
 const fetchNotionPostData = async (type: string, slug: string): Promise<BlogPostPage | ProjectPostPage> => {
