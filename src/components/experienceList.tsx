@@ -2,7 +2,7 @@ import { Experience } from "@/constants/types";
 import { FunctionComponent } from "react";
 import Image from "next/image";
 import VerticalLine from "../assets/vertical-line.tsx";
-import * as ExpBall from "../assets/exp-ball.svg";
+import ExpBall from '../assets/exp-ball.svg';
 
 type ExperienceListProps = {
   experiences: Experience[];

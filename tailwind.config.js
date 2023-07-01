@@ -2,26 +2,22 @@ const { defaultHead } = require("next/head");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     fontFamily: {
-      mulish: "var(--font-mulish)",
-      lora: "var(--font-lora)",
+      mulish: 'var(--font-mulish)',
+      lora: 'var(--font-lora) var(--font-sumana) var(--font-serif)',
     },
     extend: {
       colors: {
-        primary: "#FFA500",
-        secondary: "#1A1205",
-        backgroundSecundary: "#071421",
-        backgroundDark: "#050F1A",
-        text: "#C3BFBF",
-        darkerText: "#807D7D",
+        primary: '#FFA500',
+        secondary: '#1A1205',
+        backgroundSecundary: '#071421',
+        backgroundDark: '#050F1A',
+        text: '#C3BFBF',
+        darkerText: '#807D7D',
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };
