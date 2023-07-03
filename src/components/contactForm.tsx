@@ -4,7 +4,6 @@ import React, { Suspense, useState } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/developer.json';
 import { generateShimmer, generateShimmerToBase64 } from '@/services/shimmerHelper.service';
-import LoadingSpinner from './loadingSpinner';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
