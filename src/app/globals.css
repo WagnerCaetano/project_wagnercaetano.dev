@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,5 +18,19 @@ p {
 }
 
 .ml-3 {
-  margin-left: 0.75rem/* 12px */;
+  margin-left: 0.75rem /* 12px */;
+}
+
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+span {
+  font-display: swap;
 }

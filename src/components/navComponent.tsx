@@ -39,7 +39,7 @@ const NavComponent = ({ shadow }) => {
             </svg>
           </button>
           <div className={`absolute top-14 right-0 w-48 bg-backgroundSecundary py-2 px-4 rounded shadow-md ${isOpen ? 'block' : 'hidden'} lg:hidden text-primary`}>
-            <Link replace href={'/'}>
+            <Link replace href={'/#about'}>
               <p className="block mb-2">About</p>
             </Link>
             <Link replace href={'/projects'}>
@@ -48,7 +48,7 @@ const NavComponent = ({ shadow }) => {
             <Link replace href={'/blog'}>
               <p className="block mb-2">Blog</p>
             </Link>
-            <Link replace href={'/'}>
+            <Link replace href={'/#contact'}>
               <p className="block mb-2">Contact</p>
             </Link>
             <a href={'/resume.pdf'} download={true} className="rounded border border-primary p-2 text-center text-primary">
@@ -57,7 +57,7 @@ const NavComponent = ({ shadow }) => {
           </div>
         </div>
         <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-normal text-text">
-          <Link replace href={'/'}>
+          <Link replace href={'/#about'}>
             <p className="hover:text-primary hover-delay">About</p>
           </Link>
           <Link replace href={'/projects'}>
@@ -66,7 +66,7 @@ const NavComponent = ({ shadow }) => {
           <Link replace href={'/blog'}>
             <p className="hover:text-primary hover-delay">Blog</p>
           </Link>
-          <Link replace href={'/'}>
+          <Link replace href={'/#contact'}>
             <p className="hover:text-primary hover-delay">Contact</p>
           </Link>
 

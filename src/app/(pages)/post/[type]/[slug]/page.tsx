@@ -3,7 +3,7 @@ import NotionService from '@/services/notion.service';
 import ReactMarkdown from 'react-markdown';
 import { BlogPostPage, ProjectPostPage } from '../../../../../constants/types';
 import Image from 'next/image';
-import ProfilePicture from './../../../../../assets/profile-nobg.png';
+import ProfileImage from '@/public/profile-nobg.webp';
 import dayjs from 'dayjs';
 import { generateShimmerToBase64, generateShimmer } from '@/services/shimmerHelper.service';
 
@@ -30,7 +30,7 @@ async function PostPage({ params: { type, slug } }) {
             <Image
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(100, 100))}`}
-              src={ProfilePicture}
+              src={ProfileImage}
               className="w-12 p-[1px] rounded-full bg-text transition-all duration-250 ease-in-out"
               alt="Author Picture"
               width={100}

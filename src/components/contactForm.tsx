@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/developer.json';
 import { generateShimmer, generateShimmerToBase64 } from '@/services/shimmerHelper.service';
+import LoadingSpinner from './loadingSpinner';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -113,7 +114,16 @@ const ContactForm = () => {
             onClick={(e) => handleSubmit(e)}
           />
         </form>
-        <Lottie placeholder={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(400, 400))}`} className="mr-4 hidden lg:block" animationData={animationData} />
+        <Suspense fallback={<p className="text-text text-xl">Loading lottie animation...</p>}>
+          <Lottie
+            seamless
+            required={false}
+            rendererSettings={{ preserveAspectRatio: 'xMidYMid slice', progressiveLoad: true, focusable: false }}
+            placeholder={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(400, 400))}`}
+            className="mr-4 hidden lg:block"
+            animationData={animationData}
+          />
+        </Suspense>
       </div>
     </div>
   );

@@ -1,7 +1,5 @@
 import Image from "next/image";
-import "./../globals.css";
-
-import ProfileImage from './../../assets/profile-nobg.png';
+import './../globals.css';
 import GithubPlacerholder from './../../assets/github_placeholder.jpg';
 
 import SkillCard from '@/components/skillCard';
@@ -35,49 +33,50 @@ async function Home() {
 
   return (
     <>
-      <div className="bg-backgroundSecundary max-h-[765]px px-4 flex flex-col">
-        <div className="mx-auto min-w-6xl xl:w-max">
-          <div className="flex flew-col flex-wrap xl:flex-row xl:flex-nowrap">
-            <div className="flex flex-col">
-              <div className="flex py-16 xl:py-60 flex-col gap-8">
-                <div className="flex flex-col gap-1 text-text">
-                  <p className="text-3xl font-mulish font-black">Hello, my name is</p>
-                  <p className="text-5xl font-mulish font-black">Wagner Caetano,</p>
-                  <p className="text-3xl font-lora">Full Stack Developer</p>
-                </div>
-                <div className="flex flex-row gap-4 font-lora text-xl text-center">
-                  <button className="text-secondary bg-primary rounded px-3 py-2 hover:bg-opacity-70 transition-all duration-250 ease-in-out">
-                    <p>Get in contact</p>
-                  </button>
-                  <button className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out">
-                    <p>Download resume</p>
-                  </button>
-                </div>
+      <div className="flex flex-1 bg-backgroundSecundary max-h-[765]px px-4 w-full">
+        <div className="flex flex-col mx-auto max-w-6xl xl:w-max xl:flex-row gap-4 justify-between">
+          <div className="flex flex-col min-h-1/2">
+            <div className="flex py-16 xl:py-60 flex-col gap-8">
+              <div className="flex flex-col gap-1 text-text">
+                <p className="text-3xl font-mulish font-black">Hello, my name is</p>
+                <p className="text-5xl font-mulish font-black">Wagner Caetano,</p>
+                <p className="text-3xl font-lora">Full Stack Developer</p>
               </div>
-
-              <div className="flex-row text-primary relative gap-10 py-4 hidden xl:flex">
-                <div>
-                  <p className="font-lora text-4xl text-center font-semibold">3+ Years</p>
-                  <p className="font-lora text-base text-center">Experience</p>
-                </div>
-                <div>
-                  <p className="font-lora text-4xl text-center font-semibold">Aws</p>
-                  <p className="font-lora text-base text-center">Certified</p>
-                </div>
+              <div className="flex flex-row gap-4 font-lora text-xl text-center">
+                <button className="text-secondary bg-primary rounded px-3 py-2 hover:bg-opacity-70 transition-all duration-250 ease-in-out">
+                  <p>Get in contact</p>
+                </button>
+                <button className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out">
+                  <p>Download resume</p>
+                </button>
               </div>
             </div>
+
+            <div className="flex-row text-primary relative gap-10 py-4 hidden xl:flex">
+              <div>
+                <p className="font-lora text-4xl text-center font-semibold">3+ Years</p>
+                <p className="font-lora text-base text-center">Experience</p>
+              </div>
+              <div>
+                <p className="font-lora text-4xl text-center font-semibold">Aws</p>
+                <p className="font-lora text-base text-center">Certified</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-1 min-h-1/2">
             <Image
-              className="max-h-full max-w-full mx-auto transition-all duration-250 ease-in-out"
+              className="h-fit xl:h-[750px] w-fit xl:w-[750px] mx-auto transition-all duration-250 ease-in-out self-end"
               placeholder="empty"
-              width={774}
-              height={774}
-              src={ProfileImage}
+              width={500}
+              height={500}
+              quality={50}
+              src="/profile-nobg.webp"
               alt={'Profile picture'}
             />
           </div>
         </div>
       </div>
-      <div className="pt-16 px-4 xl:pt-32">
+      <div id="about" className="pt-16 px-4 xl:pt-32">
         <div className="flex flex-col mx-auto max-w-6xl xl:w-max gap-4">
           <p className="text-primary font-mulish font-bold text-4xl">{'<About>'}</p>
           <div className="flex flex-row gap-4">
@@ -153,7 +152,7 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pb-16 pt-8 px-4 xl:pb-32 xl:pt-16">
+      <div id="contact" className="pb-16 pt-8 px-4 xl:pb-32 xl:pt-16">
         <ContactForm />
       </div>
     </>
