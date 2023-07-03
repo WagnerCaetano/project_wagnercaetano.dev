@@ -108,7 +108,7 @@ async function Home() {
             <p className="text-primary font-mulish font-bold text-4xl text-center">{'<Portfolio>'}</p>
             <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-3">
               {projects.map((project) => (
-                <Link className="text-transparent hover:text-primary transition-all duration-250 ease-in-out" href={handlePortfolioShowcaseClick(project)}>
+                <Link replace className="text-transparent hover:text-primary transition-all duration-250 ease-in-out" href={handlePortfolioShowcaseClick(project)}>
                   <Image
                     src={project.projectPost?.cover ? project.projectPost?.cover : GithubPlacerholder}
                     className="object-cover rounded-sm shadow-lg h-64 w-full hover:opacity-50 cursor-pointer transition-all duration-250 ease-in-out"

@@ -17,7 +17,7 @@ dayjs.extend(localizedFormat);
 
 const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
   return (
-    <Link className="transition duration-300 hover:scale-105" href={`/post/blog/${post.slug}`}>
+    <Link replace className="transition duration-300 hover:scale-105" href={`/post/blog/${post.slug}`}>
       <div className="oveflow-hidden flex flex-col rounded-xl shadow-lg bg-backgroundSecundary">
         <div className="flex-shrink-0">
           <Image
