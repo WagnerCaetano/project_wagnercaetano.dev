@@ -3,6 +3,8 @@ import { NotionToMarkdown } from "notion-to-md";
 import { BlogPost, BlogPostPage, ProjectPost, ProjectPostPage } from "../constants/types";
 import { pageToBlogPostTransformer, pageToProjectPostTransformer } from "./notion.helper";
 
+const CACHE_MAX_AGE = 60 * 60 * 24; // 1 day
+
 export default class NotionService {
   client: Client;
   n2m: NotionToMarkdown;
@@ -69,45 +71,83 @@ export default class NotionService {
 
   /* PRIVATE METHODS */
   private async searchAnyListNotion(database: string) {
-    return await this.client.databases.query({
-      database_id: database!,
-      filter: {
-        and: [
-          {
-            property: "Published",
-            checkbox: {
-              equals: true,
+    const url = `https://api.notion.com/v1/databases/${database}/query`;
+
+    const response = await fetch(url, {
+      next: {
+        revalidate: CACHE_MAX_AGE,
+      },
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Notion-Version': '2022-06-28',
+      },
+      body: JSON.stringify({
+        filter: {
+          and: [
+            {
+              property: 'Published',
+              checkbox: {
+                equals: true,
+              },
             },
+          ],
+        },
+        sorts: [
+          {
+            property: 'Created',
+            direction: 'descending',
           },
         ],
-      },
-      sorts: [
-        {
-          property: "Created",
-          direction: "descending",
-        },
-      ],
+      }),
     });
+
+    if (!response.ok) {
+      console.log(response);
+      throw new Error(`An error occurred: ${response.status}`);
+    }
+
+    return await response.json();
   }
 
   private async getAnyPageNotion(database: string, slug: string, markdown: any) {
-    const response = await this.client.databases.query({
-      database_id: database!,
-      filter: {
-        property: "Slug",
-        formula: {
-          string: {
-            equals: slug,
+    const url = `https://api.notion.com/v1/databases/${database}/query`;
+
+    const response = await fetch(url, {
+      next: {
+        revalidate: CACHE_MAX_AGE,
+      },
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Notion-Version': '2022-06-28',
+      },
+      body: JSON.stringify({
+        filter: {
+          property: 'Slug',
+          formula: {
+            string: {
+              equals: slug,
+            },
           },
         },
-      },
+      }),
     });
 
-    if (response.results.length === 0) {
-      throw "No results avaualble";
+    if (!response.ok) {
+      console.log(response);
+      throw new Error(`An error occurred: ${response.status}`);
     }
 
-    const page = response.results[0];
+    const data = await response.json();
+
+    if (data.results.length === 0) {
+      throw new Error('No results available');
+    }
+
+    const page = data.results[0];
 
     const mdBlocks = await this.n2m.pageToMarkdown(page.id);
     markdown = this.n2m.toMarkdownString(mdBlocks);

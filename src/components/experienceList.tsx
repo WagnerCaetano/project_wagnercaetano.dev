@@ -3,6 +3,7 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import VerticalLine from "../assets/vertical-line.tsx";
 import ExpBall from '../assets/exp-ball.svg';
+import { generateShimmerToBase64, generateShimmer } from '@/services/shimmerHelper.service.ts';
 
 type ExperienceListProps = {
   experiences: Experience[];
@@ -14,7 +15,15 @@ const ExperienceList: FunctionComponent<ExperienceListProps> = ({ experiences, t
   return (
     <div className="flex flex-col text-text max-w-screen-md lg:max-w-xl">
       <div className="flex flex-row gap-4 ">
-        <Image src={ExpBall} className="w-8 h-8 self-end mb-1" height={32} width={32} alt={""} />
+        <Image
+          src={ExpBall}
+          className="w-8 h-8 self-end mb-1 transition-all duration-250 ease-in-out"
+          height={32}
+          width={32}
+          alt={'Visual Experience Image'}
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(32, 32))}`}
+        />
         <p className="text-lora text-3xl font-bold">{title}</p>
       </div>
       <div className="flex flex-row">

@@ -17,22 +17,12 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
   return (
     <>
       <div className="relative text-primary">
-        <button
-          onClick={toggleDropdown}
-          className="flex items-left justify-center text-xl font-lora font-normal focus:outline-none lg:hidden"
-        >
+        <button onClick={toggleDropdown} className="flex items-left justify-center text-xl font-lora font-normal focus:outline-none lg:hidden">
           See more
         </button>
-        <div
-          className={`absolute w-48 gap-4 z-10 top-10 flex-col right-0 bg-backgroundSecundary py-2 px-4 rounded shadow ${
-            isOpen ? "flex" : "hidden"
-          } lg:hidden text-primary`}
-        >
+        <div className={`absolute w-48 gap-4 z-10 top-10 flex-col right-0 bg-backgroundSecundary py-2 px-4 rounded shadow ${isOpen ? 'flex' : 'hidden'} lg:hidden text-primary`}>
           {(project.projectPost?.github_url || project.projectRepository.url) && (
-            <Link
-              href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
-              className="text-text"
-            >
+            <Link href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url} className="text-text">
               Github
             </Link>
           )}
@@ -50,10 +40,7 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
       </div>
       <div className="hidden lg:flex flex-row gap-4 items-center">
         {(project.projectPost?.github_url || project.projectRepository.url) && (
-          <Link
-            href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
-            className="text-text hover:text-primary hover-delay"
-          >
+          <Link href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url} className="text-text hover:text-primary hover-delay">
             Github
           </Link>
         )}
@@ -65,7 +52,7 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
         {project.projectPost?.slug && (
           <Link
             href={`/post/project/${project.projectPost.slug}`}
-            className="rounded border border-primary px-2 py-3 text-center text-primary hover:font-bold hover-delay"
+            className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out"
           >
             Visit project page
           </Link>

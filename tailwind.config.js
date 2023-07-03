@@ -19,5 +19,18 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'bg-emerald-800',
+    'bg-lime-800',
+    'bg-teal-800',
+    'bg-pink-800',
+    'bg-purple-800',
+    'bg-orange-800',
+    'bg-red-800',
+    'bg-stone-800',
+    'bg-yellow-800',
+    'bg-blue-800',
+    'bg-cyan-800',
+  ],
   plugins: [require('@tailwindcss/typography')],
 };

@@ -18,8 +18,6 @@ export async function POST(req: Request) {
     },
   });
 
-  console.log(transporter.options.host);
-
   const body = await req.json();
 
   const mailData = {

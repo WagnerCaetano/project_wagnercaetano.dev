@@ -1,8 +1,14 @@
 import { ProjectRepository } from "@/constants/types";
 
+const CACHE_MAX_AGE = 60 * 60 * 24; // 1 day
+
 export async function getAllUserRepos(): Promise<ProjectRepository[]> {
   try {
-    const response = await fetch(`https://api.github.com/users/wagnercaetano/repos`);
+    const response = await fetch(`https://api.github.com/users/wagnercaetano/repos`, {
+      next: {
+        revalidate: CACHE_MAX_AGE,
+      },
+    });
     if (!response.ok) {
       throw new Error(`Failed to fetch user repositories: ${response.status} ${response.statusText}`);
     }

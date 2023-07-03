@@ -13,6 +13,7 @@ import { ProjectListPackage } from '@/constants/types';
 import Link from 'next/link';
 import TestimonialCarousel from '@/components/testimonialCarousel';
 import ContactForm from '@/components/contactForm';
+import { generateShimmer, generateShimmerToBase64 } from '@/services/shimmerHelper.service';
 
 const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
@@ -65,7 +66,14 @@ async function Home() {
                 </div>
               </div>
             </div>
-            <Image className="max-h-full max-w-full mx-auto" placeholder="empty" width={774} height={774} src={ProfileImage} alt={'Profile picture'} />
+            <Image
+              className="max-h-full max-w-full mx-auto transition-all duration-250 ease-in-out"
+              placeholder="empty"
+              width={774}
+              height={774}
+              src={ProfileImage}
+              alt={'Profile picture'}
+            />
           </div>
         </div>
       </div>
@@ -104,9 +112,11 @@ async function Home() {
                   <Image
                     src={project.projectPost?.cover ? project.projectPost?.cover : GithubPlacerholder}
                     className="object-cover rounded-sm shadow-lg h-64 w-full hover:opacity-50 cursor-pointer transition-all duration-250 ease-in-out"
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(400, 400))}`}
                     width={400}
                     height={400}
-                    alt={''}
+                    alt={'Project' + project.projectRepository.name.split('_')[1]}
                     title="Click to see more"
                   />
                   <p className="text-lg font-mulish text-center">{project.projectPost?.title ? project.projectPost?.title : project.projectRepository.name.split('_')[1]}</p>
@@ -127,8 +137,8 @@ async function Home() {
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-center">{'<Experience>'}</p>
             <div className="flex flex-1 flex-wrap lg:flex-nowrap lg:flex-row gap-8 lg:justify-between">
-              <ExperienceList title="Professional Experience" height="720" experiences={listExperienceProfessional} />
-              <ExperienceList title="Academic Experience" height="480" experiences={listExperienceAcademic} />
+              <ExperienceList title="Professional Experience" height="660" experiences={listExperienceProfessional} />
+              <ExperienceList title="Academic Experience" height="400" experiences={listExperienceAcademic} />
             </div>
           </div>
         </div>
