@@ -84,50 +84,73 @@ export const listSkils: { name: string; image: any }[] = [
 export const homeTestimonials: Testimonial[] = [
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
+      'I really like his work. Besides learning very quickly technically, he has a very active attitude, always going after things. You also participate very effectively in the rites.In general you are very good! (Translated from Portuguese)',
+    name: 'Leonardo - Squad Leader',
     id: '1',
-    date: '2021',
-    project: 'Project 1',
+    date: '2020',
+    project: 'SulAmerica',
   },
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
-    id: '1',
-    date: '2021',
-    project: 'Project 1',
+      'I have always seen Wagner as a dev who knows development, he has skill and commitment, and his activities have been delivered in a timely manner, and he infects the team. (Translated from Portuguese)',
+    name: 'Glauber - QA',
+    id: '2',
+    date: '2020',
+    project: 'SulAmerica',
   },
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
-    id: '1',
+      'You are a guy out of the curve, I was impressed with your performance in the scheduling team since my first day, you actively participate in all meetings, always raising great points and collaborating a lot. Everything you propose to do you do with excellence and dedication. Always concerned about the rest of the team, to ensure that everyone is on the same page. You learn too fast. (Translated from Portuguese)',
+    name: 'Osvaldo - Senior Dev',
+    id: '3',
     date: '2021',
-    project: 'Project 1',
+    project: 'SulAmerica',
   },
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
-    id: '1',
+      'Your technical prowess, your capacity for delivery and commitment are points that contribute to you as a professional. For a professional who is at the beginning of his career you position yourself, deliver, and have attitudes far beyond what is expected. (Translated from Portuguese)',
+    name: 'Anon - ?',
+    id: '4',
     date: '2021',
-    project: 'Project 1',
+    project: 'SulAmerica',
   },
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
-    id: '1',
+      'My grade is 10, for visualizing the professionalism and the strength of contributing to the team. He is young and has mastery in the content he works on. (Translated from Portuguese)',
+    name: 'Walisson - Dev',
+    id: '5',
     date: '2021',
-    project: 'Project 1',
+    project: 'SulAmerica',
   },
   {
     content:
-      "The ability to capture responses is a game-changer. If a user gets tired of the sign up and leaves, that data is still persisted. Additionally, it's great to select between formats.",
-    name: 'Jessie J',
-    id: '1',
-    date: '2021',
-    project: 'Project 1',
+      'Man, you are a person I can trust when I ask for help, I know you will always see the best way to fix it, and I see you always willing. A differential that should be maintained and that will bring many future benefits to you, you can be sure. (Translated from Portuguese)',
+    name: 'Anon - ?',
+    id: '7',
+    date: '2022',
+    project: 'Itau Bank',
+  },
+  {
+    content: 'As I said, you are a reference in the team, you can navigate through different technologies, you are calm, you pass security. (Translated from Portuguese)',
+    name: 'Anon - ?',
+    id: '8',
+    date: '2022',
+    project: 'Itau Bank',
+  },
+  {
+    content:
+      'Wagner is an excellent professional and a very easy person to deal with. He is VERY helpful to the other team members. He has a lot of technical knowledge and problem solving skills. I would definitely have him on any team of mine! (Translated from Portuguese)',
+    name: 'Leonardo - Tech Lead',
+    id: '9',
+    date: '2023',
+    project: 'Itau Bank',
+  },
+  {
+    content:
+      'Cara I just have to thank you for your help since I joined the team. As I said in my previous answer, I see you as a focal point, determined and always willing to act in the activities and help the team as best as possible. You are to be congratulated, and you can only gain from this. I wish you every success because you deserve it! (Translated from Portuguese)',
+    name: 'Will - Dev',
+    id: '10',
+    date: '2023',
+    project: 'Itau Bank',
   },
 ];

@@ -123,7 +123,7 @@ async function Home() {
               ))}
             </div>
             <Link
-              href={'/portfolio'}
+              href={'/projects'}
               className="self-center text-secondary w-1/8 bg-primary rounded px-3 py-2 font-lora text-xl text-center hover:bg-opacity-70 transition-all duration-250 ease-in-out"
             >
               See more
@@ -142,7 +142,7 @@ async function Home() {
           </div>
         </div>
       </div>
-      <div className="pb-16 pt-8 px-4 xl:pb-32 xl:pt-16">
+      <div className="pb-8 pt-4 px-4 xl:py-16">
         <div className="mx-auto max-w-6xl xl:w-max">
           <div className="flex flex-col gap-4">
             <p className="text-primary font-mulish font-bold text-4xl text-left">{'<Feedback>'}</p>
