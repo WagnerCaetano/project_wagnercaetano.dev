@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import './../app/globals.css';
-import { colorTagMap } from '@/constants/color';
 import Image from 'next/image';
 import { DinamicColoredTag } from './dinamicColoredTag';
 import { generateShimmerToBase64, generateShimmer } from '@/services/shimmerHelper.service';
@@ -17,7 +16,7 @@ dayjs.extend(localizedFormat);
 
 const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
   return (
-    <Link replace className="transition duration-300 hover:scale-105" href={`/post/blog/${post.slug}`}>
+    <Link className="transition duration-300 hover:scale-105" href={`/post/blog/${post.slug}`}>
       <div className="oveflow-hidden flex flex-col rounded-xl shadow-lg bg-backgroundSecundary">
         <div className="flex-shrink-0">
           <Image

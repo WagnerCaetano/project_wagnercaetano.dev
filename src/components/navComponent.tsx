@@ -12,7 +12,7 @@ const NavComponent = ({ shadow }) => {
   return (
     <nav className={`h-28 px-4 lg:p-0 w-auto bg-backgroundSecundary ${shadow ? 'shadow-lg' : ''}`}>
       <div className="flex flex-row p-4 mx-auto max-w-6xl min-w-4xl justify-between font-lora">
-        <Link replace href={'wagnercaetano.dev'}>
+        <Link href={'/'}>
           <div className="text-3xl font-mulish font-black text-primary">
             <p>Wagner</p>
             <p>Caetano</p>
@@ -39,16 +39,16 @@ const NavComponent = ({ shadow }) => {
             </svg>
           </button>
           <div className={`absolute top-14 right-0 w-48 bg-backgroundSecundary py-2 px-4 rounded shadow-md ${isOpen ? 'block' : 'hidden'} lg:hidden text-primary`}>
-            <Link replace href={'/#about'}>
+            <Link href={'/#about'}>
               <p className="block mb-2">About</p>
             </Link>
-            <Link replace href={'/projects'}>
+            <Link href={'/projects'}>
               <p className="block mb-2">Portfolio</p>
             </Link>
-            <Link replace href={'/blog'}>
+            <Link href={'/blog'}>
               <p className="block mb-2">Blog</p>
             </Link>
-            <Link replace href={'/#contact'}>
+            <Link href={'/#contact'}>
               <p className="block mb-2">Contact</p>
             </Link>
             <a href={'/resume.pdf'} download={true} className="rounded border border-primary p-2 text-center text-primary">
@@ -57,16 +57,16 @@ const NavComponent = ({ shadow }) => {
           </div>
         </div>
         <div className="hidden lg:flex flex-row items-center gap-6 text-xl font-normal text-text">
-          <Link replace href={'/#about'}>
+          <Link href={'/#about'}>
             <p className="hover:text-primary hover-delay">About</p>
           </Link>
-          <Link replace href={'/projects'}>
+          <Link href={'/projects'}>
             <p className="hover:text-primary hover-delay">Portfolio</p>
           </Link>
-          <Link replace href={'/blog'}>
+          <Link href={'/blog'}>
             <p className="hover:text-primary hover-delay">Blog</p>
           </Link>
-          <Link replace href={'/#contact'}>
+          <Link href={'/#contact'}>
             <p className="hover:text-primary hover-delay">Contact</p>
           </Link>
 

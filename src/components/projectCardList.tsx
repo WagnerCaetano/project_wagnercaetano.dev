@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { FunctionComponent } from "react";
-import ProjectCard from "./projectCard";
-import { ProjectListPackage } from "@/constants/types";
+import React, { FunctionComponent } from 'react';
+import ProjectCard from './projectCard';
+import { ProjectListPackage } from '@/constants/types';
 
 type ProjectListProps = {
   data: ProjectListPackage[];
@@ -19,15 +19,12 @@ const ProjectPostList: FunctionComponent<ProjectListProps> = ({ data }) => {
     <>
       <div className="mx-auto mt-12 grid grid-cols-1 gap-6">
         {data.slice(0, currentSliceEnd).map((project) => (
-          <ProjectCard key={project.projectRepository.name} project={project} />
+          <ProjectCard key={project.projectRepository.name + '_' + project.projectRepository.description.substring(0, 11)} project={project} />
         ))}
       </div>
       {currentSliceEnd < data.length && (
         <div className="flex flex-row place-content-center p-4">
-          <button
-            className="px-4 py-2 rounded bg-backgroundSecundary text-text hover:text-primary hover:bg-secondary hover-delay"
-            onClick={nextPage}
-          >
+          <button className="px-4 py-2 rounded bg-backgroundSecundary text-text hover:text-primary hover:bg-secondary hover-delay" onClick={nextPage}>
             Load more projects
           </button>
         </div>

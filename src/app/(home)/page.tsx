@@ -26,7 +26,7 @@ async function Home() {
 
   const handlePortfolioShowcaseClick = (project: ProjectListPackage) => {
     if (project.projectPost) {
-      return `https://wagnercaetano.dev/project/${project.projectPost.slug}`;
+      return `/project/${project.projectPost.slug}`;
     }
     return project.projectRepository.url;
   };
@@ -42,13 +42,16 @@ async function Home() {
                 <p className="text-5xl font-mulish font-black">Wagner Caetano,</p>
                 <p className="text-3xl font-lora">Full Stack Developer</p>
               </div>
-              <div className="flex flex-row gap-4 font-lora text-xl text-center">
-                <button className="text-secondary bg-primary rounded px-3 py-2 hover:bg-opacity-70 transition-all duration-250 ease-in-out">
+              <div className="flex flex-row gap-4 font-lora text-xl text-center items-center">
+                <Link className="text-secondary bg-primary rounded px-3 py-3 hover:bg-opacity-70 transition-all duration-250 ease-in-out" href={'/#contact'}>
                   <p>Get in contact</p>
-                </button>
-                <button className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out">
+                </Link>
+                <Link
+                  className="border border-primary rounded text-primary py-3 px-2 hover:bg-primary hover:bg-opacity-10 transition-all duration-250 ease-in-out"
+                  href={'/resume.pdf'}
+                >
                   <p>Download resume</p>
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -107,7 +110,7 @@ async function Home() {
             <p className="text-primary font-mulish font-bold text-4xl text-center">{'<Portfolio>'}</p>
             <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-3">
               {projects.map((project) => (
-                <Link replace className="text-transparent hover:text-primary transition-all duration-250 ease-in-out" href={handlePortfolioShowcaseClick(project)}>
+                <Link className="text-transparent hover:text-primary transition-all duration-250 ease-in-out" href={handlePortfolioShowcaseClick(project)}>
                   <Image
                     src={project.projectPost?.cover ? project.projectPost?.cover : GithubPlacerholder}
                     className="object-cover rounded-sm shadow-lg h-64 w-full hover:opacity-50 cursor-pointer transition-all duration-250 ease-in-out"

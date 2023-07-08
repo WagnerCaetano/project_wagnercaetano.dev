@@ -23,7 +23,7 @@ async function PostPage({ params: { type, slug } }) {
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-w-6xl pt-8 lg:pt-16">
-        <article className="flex flex-col justify-center prose prose-h1:m-0 prose-p:text-text max-w-6xl prose-p:m-0 prose-img:m-0 rounded-sm p-4 lg:p-8 gap-8">
+        <article className="flex flex-col justify-center prose prose-h1:m-0 prose-h1:text-text prose-h2:text-text prose-h3:text-text prose-h3:font-semibold  prose-p:text-text max-w-6xl prose-p:m-0  rounded-sm p-4 lg:p-8">
           <h1 className="text-center text-2xl font-extrabold md:text-4xl font-mulish text-primary">{post.title}</h1>
           <div className="flex flex-row gap-8 justify-center items-center">
             <Image
@@ -47,7 +47,10 @@ async function PostPage({ params: { type, slug } }) {
             src={post.cover}
             alt="Post Picture"
           />
-          <ReactMarkdown className="flex flex-col" children={markdown.parent} />
+          <ReactMarkdown
+            className="flex flex-col text-text prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center "
+            children={markdown.parent}
+          />
         </article>
       </div>
     </div>
