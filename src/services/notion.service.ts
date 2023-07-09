@@ -3,7 +3,7 @@ import { NotionToMarkdown } from "notion-to-md";
 import { BlogPost, BlogPostPage, ProjectPost, ProjectPostPage } from "../constants/types";
 import { pageToBlogPostTransformer, pageToProjectPostTransformer } from "./notion.helper";
 
-const CACHE_MAX_AGE = 1; // 1 day
+const CACHE_MAX_AGE = process.env.CACHE_MAX_AGE_NOTION; // 1 day
 
 export default class NotionService {
   client: Client;
@@ -75,7 +75,7 @@ export default class NotionService {
 
     const response = await fetch(url, {
       next: {
-        revalidate: CACHE_MAX_AGE,
+        revalidate: Number(CACHE_MAX_AGE),
       },
       method: 'POST',
       headers: {
@@ -116,7 +116,7 @@ export default class NotionService {
 
     const response = await fetch(url, {
       next: {
-        revalidate: CACHE_MAX_AGE,
+        revalidate: Number(CACHE_MAX_AGE),
       },
       method: 'POST',
       headers: {
