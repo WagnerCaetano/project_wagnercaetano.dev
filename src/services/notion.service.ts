@@ -3,7 +3,7 @@ import { NotionToMarkdown } from "notion-to-md";
 import { BlogPost, BlogPostPage, ProjectPost, ProjectPostPage } from "../constants/types";
 import { pageToBlogPostTransformer, pageToProjectPostTransformer } from "./notion.helper";
 
-const CACHE_MAX_AGE = 60 * 60 * 24; // 1 day
+const CACHE_MAX_AGE = 1; // 1 day
 
 export default class NotionService {
   client: Client;

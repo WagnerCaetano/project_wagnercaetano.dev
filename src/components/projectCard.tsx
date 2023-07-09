@@ -1,13 +1,12 @@
 import { ProjectListPackage } from "../constants/types";
 import dayjs from "dayjs";
 import { FunctionComponent } from "react";
-import "./../app/globals.css";
-import { colorTagMap } from "@/constants/color";
-import { FaStar } from "react-icons/fa";
+import './../app/globals.css';
+import { FaStar } from 'react-icons/fa';
 
-import Image from "next/image";
-import GithubPlacerholder from "./../assets/github_placeholder.jpg";
-import ProjectCardButtons from "./projectCardButtons";
+import Image from 'next/image';
+import GithubPlacerholder from './../assets/github_placeholder.jpg';
+import ProjectCardButtons from './projectCardButtons';
 import DinamicColoredTag from './dinamicColoredTag';
 import { generateShimmerToBase64, generateShimmer } from '@/services/shimmerHelper.service';
 
@@ -56,11 +55,13 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
             <p className="text-xs ">{handleDescription()}</p>
           </span>
         </div>
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-col gap-4 justify-end lg:justify-normal">
-            {project.projectPost?.tags.map((tag) => (
-              <DinamicColoredTag tag={tag} />
-            ))}
+        <div className="flex flex-row justify-between items-end">
+          <div className="flex flex-col gap-1 lg:gap-4 justify-end lg:justify-normal">
+            <div className="mt-2 block space-x-1 lg:space-x-3">
+              {project.projectPost?.tags.map((tag) => (
+                <DinamicColoredTag tag={tag} />
+              ))}
+            </div>
             <div className="flex flex-row items-center gap-2">
               <p>{project.projectRepository?.stars ? project.projectRepository?.stars : 0}</p>
               <FaStar className="text-primary" width="32px" />

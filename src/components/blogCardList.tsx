@@ -12,7 +12,7 @@ export default function BlogPostList({ posts }) {
 
   return (
     <>
-      <div className="mx-auto mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mx-auto my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         {posts.slice(0, currentSliceEnd).map((post) => (
           <BlogCard key={post.id + '_' + post.slug} post={post} />
         ))}

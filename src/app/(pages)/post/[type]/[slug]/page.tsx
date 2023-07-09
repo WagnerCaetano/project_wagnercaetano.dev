@@ -48,7 +48,7 @@ async function PostPage({ params: { type, slug } }) {
             alt="Post Picture"
           />
           <ReactMarkdown
-            className="flex flex-col text-text prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center "
+            className="flex flex-col text-text prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center prose-a:text-text"
             children={markdown.parent}
           />
         </article>
