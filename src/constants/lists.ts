@@ -5,6 +5,7 @@ import Aws from './../assets/techs/aws.svg';
 import Git from './../assets/techs/git.svg';
 import React from './../assets/techs/react.svg';
 import Javascript from './../assets/techs/javascript.svg';
+import NextJs from './../assets/techs/nextjs.svg';
 import { Experience, Testimonial } from './types';
 
 export const listExperienceProfessional: Experience[] = [
@@ -73,7 +74,7 @@ export const listSkils: { name: string; image: any }[] = [
   },
   {
     name: 'NextJs',
-    image: Java,
+    image: NextJs,
   },
   {
     name: 'Javascript',
