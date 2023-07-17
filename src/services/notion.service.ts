@@ -25,7 +25,8 @@ export default class NotionService {
     const response = await this.searchAnyListNotion(database);
 
     return response.results.map((page) => {
-      return pageToProjectPostTransformer(page);
+      const transformedPage = pageToProjectPostTransformer(page);
+      return transformedPage;
     });
   }
 
@@ -35,12 +36,13 @@ export default class NotionService {
     const response = await this.searchAnyListNotion(database);
 
     return response.results.map((page) => {
-      return pageToBlogPostTransformer(page);
+      const transformedPage = pageToBlogPostTransformer(page);
+      return transformedPage;
     });
   }
 
   async getSingleProjectPost(slug: string): Promise<ProjectPostPage> {
-    let post, markdown;
+    let post: ProjectPost, markdown;
 
     const database = process.env.NOTION_PORTFOLIO_DATABASE_ID;
 
@@ -55,7 +57,7 @@ export default class NotionService {
   }
 
   async getSingleBlogPost(slug: string): Promise<BlogPostPage> {
-    let post, markdown;
+    let post: BlogPost, markdown;
 
     const database = process.env.NOTION_BLOG_DATABASE_ID;
 

@@ -8,12 +8,14 @@ const mulish = Mulish({
   subsets: ['latin'],
   variable: '--font-mulish',
   display: 'swap',
+  preload: false,
 });
 
 const lora = Lora({
   subsets: ['latin'],
   variable: '--font-lora',
   display: 'swap',
+  preload: false,
 });
 
 const sumana = Sumana({
@@ -21,6 +23,7 @@ const sumana = Sumana({
   variable: '--font-sumana',
   weight: ['400', '700'],
   display: 'swap',
+  preload: false,
 });
 
 export const metadata = {
