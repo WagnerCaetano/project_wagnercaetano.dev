@@ -25,7 +25,7 @@ const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
             className="object-cover h-64 w-full transition-all duration-250 ease-in-out"
             width={800}
             height={600}
-            src={post.cover}
+            src={`https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/${post.id}.png`}
             alt={'Blog Card Cover'}
           />
         </div>

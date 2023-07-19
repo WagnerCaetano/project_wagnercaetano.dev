@@ -26,7 +26,7 @@ async function Home() {
 
   const handlePortfolioShowcaseClick = (project: ProjectListPackage) => {
     if (project.projectPost) {
-      return `/project/${project.projectPost.slug}`;
+      return `/post/project/${project.projectPost.slug}`;
     }
     return project.projectRepository.url;
   };
@@ -86,8 +86,8 @@ async function Home() {
             <hr className="hidden xl:flex border-primary border-2 w-32 mt-3 m-2" />
             <p className="text-text text-xl font-lora font-normal">
               I am a <b>Full-stack Software Developer</b> with a passion for <b>designing</b> and <b>developing</b> innovative software solutions. With extensive knowledge and
-              expertise in both frontend and backend development, my objective is to work with various frontend technologies like <b>Angular, React, and React Native</b>, while
-              also assisting with backend demands. I am excited about collaborating with diverse teams and contributing to cutting-edge projects.
+              expertise in both frontend and backend development, my objective is to work with various frontend technologies like <b>Angular, React, and NextJs</b>, while also
+              assisting with backend demands, like Java or Node. I am excited about collaborating with diverse teams and contributing to cutting-edge projects.
             </p>
           </div>
         </div>

@@ -1,10 +1,13 @@
 import './../../../../globals.css';
 import NotionService from '@/services/notion.service';
-import ReactMarkdown from 'react-markdown';
-import { BlogPostPage, ProjectPostPage } from '../../../../../constants/types';
+import { BlogPostPage, ProjectPostPage, Props } from '../../../../../constants/types';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import { generateShimmerToBase64, generateShimmer } from '@/services/shimmerHelper.service';
+import ReactMarkdownCustomLinks from '@/components/reactMarkdownCustomLinks';
+
+import { Metadata, ResolvingMetadata } from 'next';
+import ReactMarkdown from 'react-markdown';
 
 const localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
@@ -17,13 +20,32 @@ const fetchNotionPostData = async (type: string, slug: string): Promise<BlogPost
   return postWrapper;
 };
 
+export async function generateMetadata({ params }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+  // read route params
+  const { type, slug } = params;
+
+  // fetch data
+  const { markdown, post } = await fetchNotionPostData(type, slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      images: [{ url: `https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/${post.id}.png` }, ...previousImages],
+    },
+  };
+}
+
 async function PostPage({ params: { type, slug } }) {
   const { markdown, post } = await fetchNotionPostData(type, slug);
 
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-w-6xl pt-8 lg:pt-16">
-        <article className="flex flex-col justify-center prose prose-h1:m-0 prose-h1:text-text prose-h2:text-text prose-h3:text-text prose-h3:font-semibold  prose-p:text-text max-w-6xl prose-p:m-0  rounded-sm p-4 lg:p-8">
+        <article className="flex flex-col justify-center prose prose-h1:m-0  prose-h1:text-text prose-h2:text-text prose-h3:text-text prose-h3:font-semibold  prose-p:text-text max-w-6xl prose-p:m-0  rounded-sm p-4 lg:p-8">
           <h1 className="text-center text-2xl font-extrabold md:text-4xl font-mulish text-primary">{post.title}</h1>
           <div className="flex flex-row gap-8 justify-center items-center">
             <Image
@@ -44,12 +66,17 @@ async function PostPage({ params: { type, slug } }) {
             blurDataURL={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(700, 475))}`}
             width={1000}
             height={800}
-            src={post.cover}
+            src={`https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/${post.id}.png`}
             alt="Post Picture"
           />
           <ReactMarkdown
-            className="flex flex-col text-text prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center prose-a:text-text"
+            className="flex flex-col text-text prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center  prose-blockquote:text-text prose-code:text-text prose-code:font-bold"
             children={markdown.parent}
+            components={{
+              a: ({ node, ...props }) => {
+                return <ReactMarkdownCustomLinks markdown={markdown} props={props} />;
+              },
+            }}
           />
         </article>
       </div>

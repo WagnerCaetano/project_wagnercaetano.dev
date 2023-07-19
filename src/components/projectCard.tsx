@@ -1,6 +1,6 @@
-import { ProjectListPackage } from "../constants/types";
-import dayjs from "dayjs";
-import { FunctionComponent } from "react";
+import { ProjectListPackage } from '../constants/types';
+import dayjs from 'dayjs';
+import { FunctionComponent } from 'react';
 import './../app/globals.css';
 import { FaStar } from 'react-icons/fa';
 
@@ -19,7 +19,7 @@ dayjs.extend(localizedFormat);
 
 const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
   const handleCover = () => {
-    return project.projectPost?.cover ? project.projectPost.cover : GithubPlacerholder;
+    return project.projectPost?.cover ? `https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/${project.projectPost.id}.png` : GithubPlacerholder;
   };
 
   const handleTitle = () => {
@@ -59,7 +59,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
           <div className="flex flex-col gap-1 lg:gap-4 justify-end lg:justify-normal">
             <div className="mt-2 block space-x-1 lg:space-x-3">
               {project.projectPost?.tags.map((tag) => (
-                <DinamicColoredTag tag={tag} />
+                <DinamicColoredTag key={tag.id} tag={tag} />
               ))}
             </div>
             <div className="flex flex-row items-center gap-2">
@@ -75,4 +75,3 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
 };
 
 export default ProjectCard;
-

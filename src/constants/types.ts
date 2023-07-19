@@ -1,6 +1,5 @@
 import { MdStringObject } from "notion-to-md/build/types";
-import { ProjectTypes } from "./enums";
-import { StaticImageData } from "next/image";
+import { ProjectTypes } from './enums';
 
 /* GITHUB TYPES */
 export type ProjectRepository = {
@@ -25,6 +24,10 @@ export type BlogPost = {
   tags: Tag[];
   description: string;
   date: string;
+};
+
+export type Props = {
+  params: any;
 };
 
 export type ProjectPost = {

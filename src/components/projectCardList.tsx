@@ -19,7 +19,7 @@ const ProjectPostList: FunctionComponent<ProjectListProps> = ({ data }) => {
     <>
       <div className="mx-auto mt-12 grid grid-cols-1 gap-6">
         {data.slice(0, currentSliceEnd).map((project) => (
-          <ProjectCard key={project.projectRepository.name + '_' + project.projectRepository.description.substring(0, 11)} project={project} />
+          <ProjectCard key={project.projectRepository.name} project={project} />
         ))}
       </div>
       {currentSliceEnd < data.length && (
