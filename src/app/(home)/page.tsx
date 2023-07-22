@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 import './../globals.css';
 import GithubPlacerholder from './../../assets/github_placeholder.jpg';
 
@@ -112,7 +112,7 @@ async function Home() {
               {projects.map((project) => (
                 <Link className="text-transparent hover:text-primary transition-all duration-250 ease-in-out" href={handlePortfolioShowcaseClick(project)}>
                   <Image
-                    src={project.projectPost?.cover ? project.projectPost?.cover : GithubPlacerholder}
+                    src={project.projectPost?.cover ? `https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/${project.projectPost.id}.png` : GithubPlacerholder}
                     className="object-cover rounded-sm shadow-lg h-64 w-full hover:opacity-50 cursor-pointer transition-all duration-250 ease-in-out"
                     placeholder="blur"
                     blurDataURL={`data:image/svg+xml;base64,${generateShimmerToBase64(generateShimmer(400, 400))}`}

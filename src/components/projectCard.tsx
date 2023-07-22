@@ -24,9 +24,12 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
 
   const handleTitle = () => {
     const repoNameList = project.projectRepository.name.split('_');
-    return project.projectPost?.title && project.projectPost?.type
-      ? `${project.projectPost.type} - ${project.projectPost.title}`
-      : `${repoNameList[0]} - ${repoNameList[1].split('-').join(' ')}`;
+    if (project.projectPost?.title && project.projectPost?.type) {
+      return `${project.projectPost.type} - ${project.projectPost.title}`;
+    } else if (repoNameList.length > 1) {
+      return repoNameList.map((repoName) => repoName.charAt(0).toUpperCase() + repoName.slice(1)).join(' ');
+    }
+    return repoNameList[0];
   };
 
   const handleDescription = () => {
