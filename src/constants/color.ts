@@ -10,4 +10,5 @@ export const colorTagMap = {
   typescript: 'bg-yellow-800',
   infrastructure: 'bg-blue-800',
   cloud: 'bg-cyan-800',
+  testing: 'bg-fuchsia-800',
 };

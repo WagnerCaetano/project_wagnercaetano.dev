@@ -12,6 +12,8 @@ import Link from 'next/link';
 import TestimonialCarousel from '@/components/testimonialCarousel';
 import ContactForm from '@/components/contactForm';
 import { generateShimmer, generateShimmerToBase64 } from '@/services/shimmerHelper.service';
+import Typewriter from 'typewriter-effect';
+import TypeWritterWrapper from '@/components/typeWritterWrapper';
 
 const fetchNotionData = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
@@ -40,7 +42,10 @@ async function Home() {
               <div className="flex flex-col gap-1 text-text">
                 <p className="text-3xl font-mulish font-black">Hello, my name is</p>
                 <p className="text-5xl font-mulish font-black">Wagner Caetano,</p>
-                <p className="text-3xl font-lora">Full Stack Developer</p>
+                <div className="flex flex-row text-3xl font-lora gap-2">
+                  <p>I'm a </p>
+                  <TypeWritterWrapper />
+                </div>
               </div>
               <div className="flex flex-row gap-4 font-lora text-xl text-center items-center">
                 <Link className="text-secondary bg-primary rounded px-3 py-3 hover:bg-opacity-70 transition-all duration-250 ease-in-out" href={'/#contact'}>

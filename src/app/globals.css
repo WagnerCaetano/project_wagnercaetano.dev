@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .prose-custom-style {
+    @apply prose-strong:text-text prose-strong:font-bold prose-img:m-0 prose-img:py-4 prose-img:self-center prose-img:mx-auto prose-img:items-center prose-h1:text-text prose-h2:text-text prose-h3:text-text prose-h3:font-semibold  prose-p:text-text prose-blockquote:text-text prose-code:text-text prose-code:font-bold
+  }
+}
+
 p,a {
   margin: 0;
   padding: 0;

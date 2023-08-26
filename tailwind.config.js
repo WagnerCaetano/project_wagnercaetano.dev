@@ -16,6 +16,20 @@ module.exports = {
         backgroundDark: '#050F1A',
         text: '#C3BFBF',
         darkerText: '#807D7D',
+
+        // Custom colors
+        fuchsia: {
+          50: '#fdf4ff',
+          100: '#fae8ff',
+          200: '#f5d0fe',
+          300: '#f0abfc',
+          400: '#e879f9',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+          800: '#86198f',
+          900: '#701a75',
+        },
       },
     },
   },
@@ -31,6 +45,7 @@ module.exports = {
     'bg-yellow-800',
     'bg-blue-800',
     'bg-cyan-800',
+    'bg-fuchsia-800',
   ],
   plugins: [require('@tailwindcss/typography')],
 };
