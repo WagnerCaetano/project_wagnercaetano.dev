@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['typewriter-effect'],
   experimental: {
     appDir: true,
   },

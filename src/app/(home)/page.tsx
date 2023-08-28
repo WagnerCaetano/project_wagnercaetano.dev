@@ -5,15 +5,15 @@ import GithubPlacerholder from './../../assets/github_placeholder.jpg';
 import SkillCard from '@/components/skillCard';
 import { homeTestimonials, listExperienceAcademic, listExperienceProfessional, listSkils } from '@/constants/lists';
 import ExperienceList from '@/components/experienceList';
-import { getAllBlogPostsList, getAllProjectList } from '@/services/project.service';
+import { getAllProjectList } from '@/services/project.service';
 import NotionService from '@/services/notion.service';
 import { BlogPost, ProjectListPackage } from '@/constants/types';
 import Link from 'next/link';
 import TestimonialCarousel from '@/components/testimonialCarousel';
 import ContactForm from '@/components/contactForm';
 import { generateShimmer, generateShimmerToBase64 } from '@/services/shimmerHelper.service';
-import Typewriter from 'typewriter-effect';
 import TypeWritterWrapper from '@/components/typeWritterWrapper';
+import { getAllBlogPostsList } from '@/services/blog.service';
 
 const fetchProjectsList = async (): Promise<ProjectListPackage[]> => {
   const notionService = new NotionService();
@@ -98,7 +98,8 @@ async function Home() {
               width={500}
               height={500}
               quality={50}
-              src="/profile-nobg.webp"
+              priority={false}
+              src="/profile-nobg-lower.webp"
               alt={'Profile picture'}
             />
           </div>

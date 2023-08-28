@@ -86,17 +86,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          gtag('js', import LoadingSpinner from '@/components/loadingSpinner';
-
-export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
-  return (
-    <div className="w-full flex flex-1 place-content-center h-screen">
-      <LoadingSpinner />
-    </div>
-  );
-}
-new Date());
+          gtag('js', new Date());
 
           gtag('config', 'G-R8K99S28BX');
           `}
