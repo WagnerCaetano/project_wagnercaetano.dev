@@ -8,6 +8,7 @@ export type ProjectRepository = {
   description: string;
   stars: string;
   update_date: string;
+  topics: string[];
 };
 
 /* NOTION TYPES */

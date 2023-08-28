@@ -36,6 +36,10 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
     return project.projectPost?.description ? project.projectPost.description : project.projectRepository.description;
   };
 
+  const handleTopics = () => {
+    return project.projectRepository.topics;
+  };
+
   return (
     <div className="oveflow-hidden max-w-6xl flex flex-col lg:flex-row rounded-xl shadow-lg bg-backgroundSecundary">
       <div className="flex-shrink-0">
@@ -51,18 +55,15 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
       </div>
       <div className="flex min-h-[200px] w-full flex-col lg:justify-between px-4 pb-6 pt-2 text-text">
         <div className="flex-1">
-          <span className="mt-2 block">
-            <p className="text-xl font-medium ">{handleTitle()}</p>
-          </span>
-          <span className="mt-2 block">
-            <p className="text-xs ">{handleDescription()}</p>
-          </span>
+          <p className="mt-2 text-xl font-medium ">{handleTitle()}</p>
+          <p className="mt-2 text-xs">{handleDescription()}</p>
+          <p className="mt-2 text-xs border-primary border-1 p-2 w-fit rounded">{handleTopics()}</p>
         </div>
         <div className="flex flex-row justify-between items-end">
           <div className="flex flex-col gap-1 lg:gap-4 justify-end lg:justify-normal">
             <div className="mt-2 block space-x-1 lg:space-x-3">
               {project.projectPost?.tags.map((tag) => (
-                <DinamicColoredTag key={tag.id} tag={tag} />
+                <DinamicColoredTag key={tag.id} tagColored={tag} />
               ))}
             </div>
             <div className="flex flex-row items-center gap-2">
@@ -78,3 +79,4 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
 };
 
 export default ProjectCard;
+

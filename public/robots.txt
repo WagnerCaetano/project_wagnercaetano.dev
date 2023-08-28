@@ -1,8 +1,4 @@
-//robots.txt
-
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
-favicon: /favicon.ico
-blog: /blog
+Sitemap: https://wagnercaetano.dev/sitemap.xml

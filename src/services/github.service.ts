@@ -19,6 +19,7 @@ export async function getAllUserRepos(): Promise<ProjectRepository[]> {
       description: repo.description,
       stars: repo.stargazers_count,
       update_date: repo.updated_at,
+      topics: repo.topics,
     }));
     return repositories;
   } catch (error) {

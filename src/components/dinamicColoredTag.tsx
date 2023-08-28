@@ -6,22 +6,17 @@ import { generateKey } from '@/services/keyHelper.service';
 import { FunctionComponent, useEffect, useState } from 'react';
 
 type ExperienceListProps = {
-  tag: Tag;
+  tagColored: Tag;
 };
 
-export const DinamicColoredTag: FunctionComponent<ExperienceListProps> = ({ tag }) => {
+export const DinamicColoredTag: FunctionComponent<ExperienceListProps> = ({ tagColored }) => {
   const [color, setColor] = useState<string>('');
-  const key = generateKey(tag);
 
   useEffect(() => {
-    setColor(colorTagMap[tag.name]);
-  }, [tag]);
+    setColor(colorTagMap[tagColored.name]);
+  }, [tagColored]);
 
-  return (
-    <span key={key} className={`${color} font-bold rounded-lg px-2 py-1 text-xs`}>
-      {tag.name}
-    </span>
-  );
+  return <span className={`${color} font-bold rounded-lg px-2 py-1 text-xs`}>{tagColored.name}</span>;
 };
 
 export default DinamicColoredTag;
