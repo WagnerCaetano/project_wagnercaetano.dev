@@ -1,0 +1,8 @@
+//robots.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
+favicon: /favicon.ico
+blog: /blog

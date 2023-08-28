@@ -22,12 +22,17 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
         </button>
         <div className={`absolute w-48 gap-4 z-10 top-10 flex-col right-0 bg-backgroundSecundary py-2 px-4 rounded shadow ${isOpen ? 'flex' : 'hidden'} lg:hidden text-primary`}>
           {(project.projectPost?.github_url || project.projectRepository.url) && (
-            <Link href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url} target="_blank" className="text-text">
+            <Link
+              href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text"
+            >
               Github
             </Link>
           )}
           {project.projectPost?.vercel_url && (
-            <Link href={project.projectPost.vercel_url} target="_blank" className="text-text">
+            <Link href={project.projectPost.vercel_url} target="_blank" rel="noopener noreferrer" className="text-text">
               Vercel
             </Link>
           )}
@@ -43,13 +48,14 @@ const ProjectCardButtons: FunctionComponent<ProjectCardButtonsProps> = ({ projec
           <Link
             href={project.projectPost?.github_url ? project.projectPost?.github_url : project.projectRepository.url}
             target="_blank"
+            rel="noopener noreferrer"
             className="text-text hover:text-primary hover-delay"
           >
             Github
           </Link>
         )}
         {project.projectPost?.vercel_url && (
-          <Link href={project.projectPost.vercel_url} target="_blank" className="text-text hover:text-primary hover-delay">
+          <Link href={project.projectPost.vercel_url} target="_blank" rel="noopener noreferrer" className="text-text hover:text-primary hover-delay">
             Vercel
           </Link>
         )}

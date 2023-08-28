@@ -13,28 +13,28 @@ const FooterComponent = ({ shadow }) => {
         </div>
         <div className="flex flex-col gap-1 lg:gap-4 text-darkerText">
           <p className="text-[32px]">Skills</p>
-          <Link href={'https://angular.io'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://angular.io'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Angular
           </Link>
-          <Link href={'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Javascript
           </Link>
-          <Link href={'https://www.java.com/pt-BR/'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://www.java.com/pt-BR/'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Java
           </Link>
-          <Link href={'https://react.dev'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://react.dev'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             React
           </Link>
         </div>
         <div className="flex flex-col gap-1 lg:gap-4 text-darkerText">
           <p className="text-[32px]">Social Media</p>
-          <Link href={'https://github.com/WagnerCaetano'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://github.com/WagnerCaetano'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Github
           </Link>
-          <Link href={'https://www.linkedin.com/in/wagner-caetano/'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://www.linkedin.com/in/wagner-caetano/'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Linkedin
           </Link>
-          <Link href={'https://www.instagram.com/wagnercaetano.dev/'} target="_blank" className="text-lg hover-delay hover:text-primary">
+          <Link href={'https://www.instagram.com/wagnercaetano.dev/'} target="_blank" rel="noopener noreferrer" className="text-lg hover-delay hover:text-primary">
             Instagram
           </Link>
         </div>
@@ -57,8 +57,16 @@ const FooterComponent = ({ shadow }) => {
           >
             (19) 982252438
           </Link>
-          <Link href={'mailto:wagnercaetano01@gmail.com'} target="_blank" className="text-lg hover-delay hover:text-primary">
-            wagnercaetano01@gmail.com
+          <Link
+            href={(() => {
+              var encryptedMail = 'd2FnbmVyY2FldGFubzAxQGdtYWlsLmNvbQ==';
+              return new URL('mailto:'.concat(atob(encryptedMail)));
+            })()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mail text-lg hover-delay hover:text-primary"
+          >
+            Send me an email
           </Link>
         </div>
       </div>

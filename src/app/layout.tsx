@@ -28,8 +28,8 @@ const sumana = Sumana({
 });
 
 export const metadata: Metadata = {
-  title: 'Wagner Caetano Professional Portfolio',
-  description: 'Fullstack software engineer professional portfolio',
+  title: 'Wagner Caetano - Software Developer',
+  description: 'Hello, my name is Wagner, I am a Full-stack Software Developer with a passion for designing and developing innovative software solutions.',
   keywords: keywordsDeveloper,
   authors: {
     name: 'Wagner Caetano',
@@ -60,6 +60,21 @@ export const metadata: Metadata = {
       type: 'image/png',
     },
   ],
+  openGraph: {
+    type: 'website',
+    url: 'https://wagnercaetano.dev',
+    title: 'Wagner Caetano Professional Portfolio',
+    description:
+      'I am a Full-stack Software Developer with a passion for designing and developing innovative software solutions. With extensive knowledge and expertise in both frontend and backend development',
+    images: [
+      {
+        url: 'https://s3.sa-east-1.amazonaws.com/wagnercaetano.dev-portfolio-images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Wagner Caetano Professional Portfolio',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -71,7 +86,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+          gtag('js', import LoadingSpinner from '@/components/loadingSpinner';
+
+export default function Loading() {
+  // You can add any UI inside Loading, including a Skeleton.
+  return (
+    <div className="w-full flex flex-1 place-content-center h-screen">
+      <LoadingSpinner />
+    </div>
+  );
+}
+new Date());
 
           gtag('config', 'G-R8K99S28BX');
           `}

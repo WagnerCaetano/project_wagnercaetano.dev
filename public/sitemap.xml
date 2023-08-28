@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://wagnercaetano.dev/</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/projects</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/blog</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/resume.pdf</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/project/A-project-to-learn-React-Basics-Part-1-ad48863</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/project/A-project-to-learn-React-Basics-Part-2-5779d95</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/project/Space-Time-Next-Level-Week-8231e8b</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/project/Professional-Portfolio-with-Next.js-13-and-Notion-Backend-abdd605</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/project/Serverless-Todo-List-with-Drag-and-Drop-Functionality-using-Next.js-fb7e52b</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/blog/How-to-test-Angular-components-using-Jest-nice-and-easy-6a12954</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/blog/Serverless-Workflows-with-AWS-Step-Functions-and-Amazon-EventBridge-Scheduler-2a5ba9a</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/blog/Serverless-Python-Flask-API-with-AWS-Amplify-and-AWS-Lambda-and-Amazon-DynamoDB-de8d7f2</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://wagnercaetano.dev/post/blog/How-to-Use-AWS-Amplify-Authentication-to-Secure-Your-React-Native-App-d034bb7</loc>
+  <lastmod>2023-08-28T02:35:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
