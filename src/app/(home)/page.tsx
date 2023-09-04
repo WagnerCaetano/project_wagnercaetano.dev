@@ -111,9 +111,9 @@ async function Home() {
           <div className="flex flex-row gap-4">
             <hr className="hidden xl:flex border-primary border-2 w-32 mt-3 m-2" />
             <p className="text-text text-xl font-lora font-normal">
-              I am a <b>Full-stack Software Developer</b> with a passion for <b>designing</b> and <b>developing</b> innovative software solutions. With extensive knowledge and
-              expertise in both frontend and backend development, my objective is to work with various frontend technologies like <b>Angular, React, and NextJs</b>, while also
-              assisting with backend demands, like Java or Node. I am excited about collaborating with diverse teams and contributing to cutting-edge projects.
+              Developed and implemented software solutions as a <b>Full-stack Software Developer</b>, leveraging frontend and backend expertise. Used to act in
+              <b>different product scopes at the same time</b>, handling data crossover and maintaining flow compatibility. While working for a <b>health insurance company</b>
+              and one of the <b>biggest banks in Brazil</b>, created exceptional products, driving revenue growth, and optimizing user experiences.
             </p>
           </div>
         </div>
