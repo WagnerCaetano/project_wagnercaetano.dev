@@ -43,7 +43,7 @@ async function Home() {
   };
 
   const handleBlogPostShowcaseClick = (blogPost: BlogPost) => {
-    return `/post/project/${blogPost.slug}`;
+    return `/post/blog/${blogPost.slug}`;
   };
 
   return (
