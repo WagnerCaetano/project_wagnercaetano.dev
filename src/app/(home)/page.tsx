@@ -111,7 +111,7 @@ async function Home() {
           <div className="flex flex-row gap-4">
             <hr className="hidden xl:flex border-primary border-2 w-32 mt-3 m-2" />
             <p className="text-text text-xl font-lora font-normal">
-              Developed and implemented software solutions as a <b>Full-stack Software Developer</b>, leveraging frontend and backend expertise. Used to act in
+              Developed and implemented software solutions as a <b>Full-stack Software Developer</b>, leveraging frontend and backend expertise. Used to act in{' '}
               <b>different product scopes at the same time</b>, handling data crossover and maintaining flow compatibility. While working for a <b>health insurance company</b>
               and one of the <b>biggest banks in Brazil</b>, created exceptional products, driving revenue growth, and optimizing user experiences.
             </p>
